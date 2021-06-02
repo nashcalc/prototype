@@ -5,7 +5,7 @@ import Form from './form.js'
 export default function SpacingGrid(){
 
   function ColState(){
-    const[cols,setCols] = useState(3);
+    const[cols,setCols] = useState(2);
     const columncontainer = []
     columncontainer.push(
       <div>
@@ -64,6 +64,7 @@ export default function SpacingGrid(){
   }
 
   containers.push(RowState())
+
   containers.push(ColState())
 
   return (
