@@ -20,11 +20,11 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
     
   **Ganesh:**
     
+    Force form default "( , )" comma separated parentheses using text mask https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#readme via a regex-based mask function 
+    
     Form Data Retrieval 
     
     Python middle-end bridge with Django (https://www.youtube.com/watch?v=s6Xi7x4G7yg)
-    
-    Form default "( , )" comma separated parentheses using text mask https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#readme via a regex-based mask function 
   
   **Unassigned (take what you want and throw it under your name):** 
 
