@@ -9,7 +9,7 @@ class TestApp extends Component {
   render() {
     return (
       <div>
-        <h1 onClick={this.noiceWasClicked}>Noice</h1>
+        <h1 onClick={this.noiceWasClicked}>Big Noice</h1>
       </div>
     )
   }
