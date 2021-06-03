@@ -15,6 +15,8 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
 **Key Tasks:**
   
   **Ben:**  
+  
+    Responsive header
     
     Animate adding or removing cards 
     
