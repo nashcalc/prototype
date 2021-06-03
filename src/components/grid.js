@@ -7,11 +7,18 @@ export default function SpacingGrid(){
   function ColState(){
     const[cols,setCols] = useState(2);
     const columncontainer = []
-    columncontainer.push(
+    columncontainer.push(cols>0 ?
       <div>
             <button onClick={() => setCols(cols + 1)}>Add Cols</button>
             <button onClick={() => setCols(cols - 1)}>Remove Cols</button>
-      </div>)
+      </div>
+      :
+      <div>
+            <button onClick={() => setCols(cols + 1)}>Add Cols</button>
+            <button onClick={() => setCols(cols + 0)}>Remove Cols</button>
+      </div>
+    )
+
     const containerMap = Array.from(Array(cols).keys())
     columncontainer.push(containerMap)
     return(
@@ -64,7 +71,6 @@ export default function SpacingGrid(){
   }
 
   containers.push(RowState())
-
   containers.push(ColState())
 
   return (
