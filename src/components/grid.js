@@ -6,7 +6,9 @@ export default function SpacingGrid(){
 
   function ColState(){
     const[cols,setCols] = useState(2);
+
     const columncontainer = []
+
     columncontainer.push(cols>1 ?
       <div>
             <button onClick={() => setCols(cols + 1)}>Add Cols</button>
@@ -21,22 +23,24 @@ export default function SpacingGrid(){
 
     const containerMap = Array.from(Array(cols).keys())
 
-    function constructGrid() {
-      return(
-        <Grid container spacing={0.5}>
-        <Grid item xs={12}>
+      function constructGrid() {
+        return(
+          <Grid container spacing={0.5}>
+          <Grid item xs={12}>
 
-          <Grid container justify="center" spacing={0.5}>
-            {containerMap.map((value) => (
-              <Grid key={value} item>
-                <Form/>
-              </Grid>
-            ))}
+            <Grid container justify="center" spacing={0.5}>
+              {containerMap.map((value) => (
+                <Grid key={value} item>
+                  <Form/>
+                </Grid>
+
+              ))}
+            </Grid>
+
           </Grid>
         </Grid>
-      </Grid>
-      )
-    }
+        )
+      }
 
       function RowState(){
         const[rows,setRows] = useState(2);
@@ -69,7 +73,6 @@ export default function SpacingGrid(){
 
   containers.push(ColState())
 
-  return (
-    containers
-  );
-  }
+
+return(containers)
+}

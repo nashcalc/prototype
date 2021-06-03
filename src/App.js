@@ -9,8 +9,9 @@ import MinusCols from './components/minusColButton.js'
 function App() {
   return (
     <div className = 'App'>
-      <TestApp/>
-      <Grid/>
+
+    <TestApp/>
+    <Grid/>
     </div>
   );
 }
