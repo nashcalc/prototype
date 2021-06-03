@@ -70,9 +70,7 @@ export default function SpacingGrid(){
   }
 
   var containers = [];
-
   containers.push(ColState())
-
 
 return(containers)
 }

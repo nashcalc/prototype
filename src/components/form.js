@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
-import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,11 +20,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
-
 export default function SimpleCard() {
   const classes = useStyles();
-  const bull = <div className={classes.bullet}>•</div>;
 
   return (
     <Card className={classes.root}>
