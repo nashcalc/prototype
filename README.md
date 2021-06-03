@@ -16,7 +16,7 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   
   **Ben:**  
     
-    Zoom in and out like google sheets ui: https://blog.logrocket.com/building-inline-editable-ui-in-react/
+    Animate adding or removing cards 
     
   **Ganesh:**
     
@@ -34,11 +34,13 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
     
     Affix row and col buttons to position on page so they don't move when things are scaled 
     
-    Add styling
+    Add styling of form 
     
     Scale cards properly 
     
     Make a nice logo maybe (see what we have the rights to do) 
+    
+    Zoom in and out like google sheets ui: https://blog.logrocket.com/building-inline-editable-ui-in-react/
   
   
   **Future Features:** 
