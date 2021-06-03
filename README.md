@@ -2,6 +2,9 @@
 
 **Let's Fix Shit Up!**
 
+**Teletype**
+atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
+
 **Basically name your commit whatever the task name is and update the README, removing it from your assignments** 
 
 **Resources:**
@@ -13,9 +16,6 @@
   
   **Ben:** 
    
-    Fix column adjustment buttons in ColState 
-       notice how there's a difference between how the counts get added or appended in rows and columns respectively. 
-  
     Form default "( , )" comma separated parentheses 
     
   **Ganesh:**
