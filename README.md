@@ -13,9 +13,6 @@
   
   **Ben:** 
    
-    Fix column adjustment buttons in ColState 
-       notice how there's a difference between how the counts get added or appended in rows and columns respectively. 
-  
     Form default "( , )" comma separated parentheses 
     
   **Ganesh:**
