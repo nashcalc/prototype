@@ -1,6 +1,7 @@
 import React,{ useState } from 'react';
 import Grid from '@material-ui/core/Grid';
-import Form from './form.js'
+import Form from './Form.js'
+import Button from '@material-ui/core/Button';
 
 export default function SpacingGrid(){
 
@@ -11,13 +12,13 @@ export default function SpacingGrid(){
 
     columncontainer.push(cols>1 ?
       <div>
-            <button onClick={() => setCols(cols + 1)}>Add Cols</button>
-            <button onClick={() => setCols(cols - 1)}>Remove Cols</button>
+            <Button variant="contained" color="primary" onClick={() => setCols(cols + 1)}>+ Cols</Button>
+            <Button variant="contained" color="secondary" onClick={() => setCols(cols - 1)}>- Cols</Button>
       </div>
       :
       <div>
-            <button onClick={() => setCols(cols + 1)}>Add Cols</button>
-            <button onClick={() => setCols(cols + 0)}>Remove Cols</button>
+        <Button variant="contained" color="primary" onClick={() => setCols(cols + 1)}>+ Cols</Button>
+        <Button variant="contained" color="secondary" onClick={() => setCols(cols + 0)}>- Cols</Button>
       </div>
     )
 
@@ -52,13 +53,13 @@ export default function SpacingGrid(){
 
         return(rows>1 ?
           <div>
-            <button onClick={() => setRows(rows + 1)}>Add Rows</button>
-            <button onClick={() => setRows(rows - 1)}>Remove Rows</button>
+            <Button variant="contained" color="primary" onClick={() => setRows(rows + 1)}>+ Rows</Button>
+            <Button variant="contained" color="secondary" onClick={() => setRows(rows - 1)}>- Rows</Button>
           </div>
           :
           <div>
-            <button onClick={() => setRows(rows + 1)}>Add Rows</button>
-            <button onClick={() => setRows(rows + 0)}>Remove Rows</button>
+            <Button variant="contained" color="primary" onClick={() => setRows(rows + 1)}>+ Rows</Button>
+            <Button variant="contained" color="secondary" onClick={() => setRows(rows + 0)}>- Rows</Button>
           </div>
         )
       }
