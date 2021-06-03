@@ -13,14 +13,14 @@
   
   **Ben:** 
    
-    Form Data Retrieval 
+    Fix column adjustment buttons in ColState 
+       notice how there's a difference between how the counts get added or appended in rows and columns respectively. 
+  
+    Form default "( , )" comma separated parentheses 
     
   **Ganesh:**
     
-    Fix column adjustment buttons in ColState 
-       -(index not found error obviously associated with mapping issue -- notice how there's a difference between how the counts get added or appended in rows and columns respectively. 
-  
-    Form default "( , )" comma separated parentheses 
+    Form Data Retrieval 
     
   
   **Unassigned (take what you want and throw it under your name):** 
