@@ -2,6 +2,9 @@
 
 **Let's Fix Shit Up!**
 
+**Teletype**
+atom://teletype/portal/83522148-b868-4f0c-8b00-71b67dea45ca
+
 **Basically name your commit whatever the task name is and update the README, removing it from your assignments** 
 
 **Resources:**
