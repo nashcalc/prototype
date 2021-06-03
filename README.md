@@ -6,6 +6,8 @@
 
 **Resources:**
   https://docs.google.com/document/d/1koHvLZkfmVZ1JqvQaXxrCAGBeWYqXPgocr3aKMm2IfA/edit
+  
+  This might be helpful for us both with phase 1: https://www.youtube.com/watch?v=zgKH12s_95A
 
 **Key Tasks:**
   
