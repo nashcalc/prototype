@@ -1,6 +1,6 @@
 import React,{ useState } from 'react';
 import Grid from '@material-ui/core/Grid';
-import Form from './form.js'
+import Form from './Form.js'
 import Button from '@material-ui/core/Button';
 
 
