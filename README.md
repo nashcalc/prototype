@@ -42,6 +42,7 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   
     We have form input data being returned from Form being passed to Grid 
     What we need to do is process it in Grid and save in array format with defined indexes (where they're coming from)
+    Each Grid element needs to report its index
   
   **Future Features:** 
   
