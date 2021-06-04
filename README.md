@@ -15,10 +15,11 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
 **Key Tasks:**
   
   **Ben:**  
-  
-    Responsive static header (fix the spacing problem) -- should just be there no fancy stuff yet 
     
-        Force form default "( , )" comma separated parentheses using text mask https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#readme via a regex-based mask function 
+    We have form input data being returned from Form being passed to Grid 
+    What we need to do is process it in Grid and save in array format with defined indexes (where they're coming from)
+    Each Grid element needs to report its index
+    We also need the sub indices/positions of the values in each pair or forms (whether the first or second) 
     
   **Ganesh:**
     
@@ -27,6 +28,8 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   **Unassigned (take what you want and throw it under your name):** 
 
     Animate adding or removing form cards 
+    
+    Responsive static header (fix the spacing problem) -- should just be there no fancy stuff yet 
     
     gambit solve for nash eq 
     
@@ -40,13 +43,9 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
     
     Zoom in and out like google sheets ui: https://blog.logrocket.com/building-inline-editable-ui-in-react/
   
-    We have form input data being returned from Form being passed to Grid 
-    What we need to do is process it in Grid and save in array format with defined indexes (where they're coming from)
-    Each Grid element needs to report its index
-  
   **Future Features:** 
   
-    Take a look at nashpy and gambit + other libraries for future feature ideas / opportunities 
+    Take a look at gambit + other libraries for future feature ideas / opportunities 
       -note that the manner in which we use the python bridge means that we'll have access to other game theory libraries for other features that will all be handled behind the scenes 
       
   **Approximate feature roadmap:** 
