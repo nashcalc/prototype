@@ -16,25 +16,21 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   
   **Ben:**  
   
-    Responsive header
+    Responsive static header (fix the spacing problem) -- should just be there no fancy stuff yet 
     
-    Animate adding or removing cards 
-    
-    Fixed submit button to send form data to middle-end
+        Force form default "( , )" comma separated parentheses using text mask https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#readme via a regex-based mask function 
     
   **Ganesh:**
-    
-    Force form default "( , )" comma separated parentheses using text mask https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#readme via a regex-based mask function 
-    
-    Form Data Retrieval from submit button click 
+   
+    Submitless form data retrieval via onchange 
     
     Python middle-end bridge with Django (https://www.youtube.com/watch?v=s6Xi7x4G7yg)
   
   **Unassigned (take what you want and throw it under your name):** 
 
+    Animate adding or removing form cards 
     
-    
-    nashpy/gambit solve for nash eq 
+    gambit solve for nash eq 
     
     Affix row and col buttons to position on page so they don't move when things are scaled 
     
