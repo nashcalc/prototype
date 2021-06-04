@@ -27,10 +27,10 @@ export default function SpacingGrid(){
 
       function constructGrid() {
         return(
-          <Grid container spacing={0.5}>
+          <Grid container spacing={2}>
           <Grid item xs={12}>
 
-            <Grid container justify="center" spacing={0.5}>
+            <Grid container justify="center" spacing={1}>
               {containerMap.map((value) => (
                 <Grid key={value} item>
                   <Form/>
