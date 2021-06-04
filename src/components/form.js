@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(0.1),
-      width: '7ch',
+      width: '20ch',
     },
     minWidth: 40
   },
@@ -23,15 +23,16 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleCard() {
   const classes = useStyles();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-  };
-
   const handleChange = event => {
     setValue(event.target.value)
   };
 
+  const handleChange2 = event => {
+    setValue2(event.target.value)
+  };
+
   const [myValue, setValue] = useState('')
+  const [myValue2, setValue2] = useState('')
 
   return (
     <div>
@@ -39,20 +40,22 @@ export default function SimpleCard() {
         <CardActions>
           <div>(</div>
           <div class="form-control">{
-            <form onSubmit={handleSubmit}>
-              <TextField value={myValue} onChange={handleChange} id="outlined-basic" label='' InputProps={{ disableUnderline: true }} />
+            <form>
+              <TextField value={myValue} onChange={handleChange} id="outlined-basic"  label='' InputProps={{ disableUnderline: true }} />
             </form> }
           </div>
-          <div>,</div>
+          ,
           <div class="form-control">{
-            <form onSubmit={handleSubmit}>
-              <TextField value={myValue} onChange={handleChange} id="outlined-basicy" label='' InputProps={{ disableUnderline: true }} />
+            <form>
+              <TextField value={myValue2} onChange={handleChange2} id="outlined-basic" label='' InputProps={{ disableUnderline: true }} />
             </form> }
           </div>
           <div>)</div>
         </CardActions>
       </Card>
       {myValue}
+      <div>,</div>
+      {myValue2}
     </div>
   );
 }
