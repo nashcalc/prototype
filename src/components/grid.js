@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Form from './Form.js'
 import Button from '@material-ui/core/Button';
 
+
 export default function SpacingGrid(){
 
   function ColState(){
@@ -71,7 +72,7 @@ export default function SpacingGrid(){
   }
 
   var containers = [];
-  containers.push(ColState())
+  containers.push(ColState());
 
 return(containers)
 }
