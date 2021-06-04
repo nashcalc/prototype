@@ -21,8 +21,6 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
         Force form default "( , )" comma separated parentheses using text mask https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#readme via a regex-based mask function 
     
   **Ganesh:**
-   
-    Submitless form data retrieval via onchange 
     
     Python middle-end bridge with Django (https://www.youtube.com/watch?v=s6Xi7x4G7yg)
   
@@ -42,6 +40,8 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
     
     Zoom in and out like google sheets ui: https://blog.logrocket.com/building-inline-editable-ui-in-react/
   
+    We have form input data being returned from Form being passed to Grid 
+    What we need to do is process it in Grid and save in array format with defined indexes (where they're coming from)
   
   **Future Features:** 
   
