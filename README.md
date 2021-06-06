@@ -28,16 +28,16 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
     
   **Ganesh:**
     
-    Python middle-end bridge with Django (https://www.youtube.com/watch?v=s6Xi7x4G7yg)
+   Responsive static header (fix the spacing problem) -- should just be there no fancy stuff yet 
+      Finish tutorial here: https://betterprogramming.pub/building-a-basic-header-with-materialui-and-react-js-d650f75b4b0a + next tutorial 
   
   **Unassigned (take what you want and throw it under your name):** 
+  
+    Python middle-end bridge with Django (https://www.youtube.com/watch?v=s6Xi7x4G7yg)
 
     Animate adding or removing form cards 
     
-    Responsive static header (fix the spacing problem) -- should just be there no fancy stuff yet 
-      Finish tutorial here: https://betterprogramming.pub/building-a-basic-header-with-materialui-and-react-js-d650f75b4b0a
-    
-    gambit solve for nash eq 
+    gambit solve for strategic nash eq 
     
     Affix row and col buttons to position on page so they don't move when things are scaled 
     
@@ -61,10 +61,4 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
       
   **Approximate feature roadmap:** 
     https://docs.google.com/document/d/1RZujZt8qM5HGe2zr7-2UWy83omNnGKIroRp1M7GaRZw/edit
-    
-      
-    
-    
-    
-    
     
