@@ -28,8 +28,8 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
     
   **Ganesh:**
     
-   Responsive static header (fix the spacing problem) -- should just be there no fancy stuff yet 
-      Finish tutorial here: https://betterprogramming.pub/building-a-basic-header-with-materialui-and-react-js-d650f75b4b0a + next tutorial 
+     Responsive static header (fix the spacing problem) -- should just be there no fancy stuff yet 
+        Finish tutorial here: https://betterprogramming.pub/building-a-basic-header-with-materialui-and-react-js-d650f75b4b0a + next tutorial 
   
   **Unassigned (take what you want and throw it under your name):** 
   
