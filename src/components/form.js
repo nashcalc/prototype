@@ -54,7 +54,7 @@ export default function SimpleCard() {
         </CardActions>
       </Card>
       {myValue}
-      <div>,</div>
+      ,
       {myValue2}
     </div>
   );

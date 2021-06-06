@@ -35,7 +35,6 @@ export default function Header() {
     </Typography>
   )
 
-
   return (
     <header>
       <AppBar className={header}>{displayDesktop()}</AppBar>
