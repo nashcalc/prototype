@@ -1,25 +1,17 @@
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  makeStyles
-} from "@material-ui/core";
+import { AppBar, Toolbar, Typography, makeStyles } from "@material-ui/core";
 import React from "react";
 
 const useStyles = makeStyles(() => ({
-   header: {
-      backgroundColor: "#400CCC",
+  header: {
+    backgroundColor: "#400CCC",
+  },
 
-   },
-
-   logo: {
-     fontFamily: "Work Sans, sans-serif",
-     fontWeight: 600,
-     color: "#FFFEFE",
-     textAlign: "left",
-
-   },
-
+  logo: {
+    fontFamily: "Work Sans, sans-serif",
+    fontWeight: 600,
+    color: "#FFFEFE",
+    textAlign: "left",
+  },
 }));
 
 export default function Header() {
@@ -31,9 +23,9 @@ export default function Header() {
 
   const nashCalcLogo = (
     <Typography variant="h6" component="h1" className={logo}>
-    NashCalc
+      NashCalc
     </Typography>
-  )
+  );
 
   return (
     <header>

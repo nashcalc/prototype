@@ -1,9 +1,8 @@
-import './App.css';
-import Grid from './components/Grid.js'
-import Header from './components/Header.js'
-import React from 'react'
-import Button from '@material-ui/core/Button';
-
+import "./App.css";
+import Grid from "./components/grid.js";
+import Header from "./components/Header.js";
+import React from "react";
+import Button from "@material-ui/core/Button";
 
 function App() {
   const [rows, setRows] = React.useState(2);
@@ -17,26 +16,16 @@ function App() {
   //   setForms(formCopy);
   // }
 
-
-
-  React.useEffect(
-  () => {
-
-
-  },
-  [rows, cols],
-);
+  React.useEffect(() => {}, [rows, cols]);
 
   return (
-
-
-    <div className = 'App'>
+    <div className="App">
       {/* <Header/> */}
-      <Grid  rows={rows} cols={cols}/>
-      <Button onClick={()=>setCols(cols+1)}>+Cols</Button>
-      <Button onClick={()=>setCols(cols-1)}>-Cols</Button>
-      <Button onClick={()=>setRows(rows+1)}>+rows</Button>
-      <Button onClick={()=>setRows(rows-1)}>-rows</Button>
+      <Grid rows={rows} cols={cols} />
+      <Button onClick={() => setCols(cols + 1)}>+Cols</Button>
+      <Button onClick={() => setCols(cols - 1)}>-Cols</Button>
+      <Button onClick={() => setRows(rows + 1)}>+rows</Button>
+      <Button onClick={() => setRows(rows - 1)}>-rows</Button>
     </div>
   );
 }
