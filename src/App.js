@@ -16,18 +16,59 @@ function App() {
   //   setForms(formCopy);
   // }
 
-  React.useEffect(() => {}, [rows, cols]);
-
-  return (
-    <div className="App">
-      {/* <Header/> */}
-      <Grid rows={rows} cols={cols} />
-      <Button onClick={() => setCols(cols + 1)}>+Cols</Button>
-      <Button onClick={() => setCols(cols - 1)}>-Cols</Button>
-      <Button onClick={() => setRows(rows + 1)}>+rows</Button>
-      <Button onClick={() => setRows(rows - 1)}>-rows</Button>
-    </div>
-  );
+  if (rows > 1 && cols > 1) {
+    return (
+      <div className="App">
+        {/* <Header/> */}
+        <Grid rows={rows} cols={cols} />
+        <div>
+          <Button onClick={() => setCols(cols + 1)}>+Cols</Button>
+          <Button onClick={() => setCols(cols - 1)}>-Cols</Button>
+          <Button onClick={() => setRows(rows + 1)}>+rows</Button>
+          <Button onClick={() => setRows(rows - 1)}>-rows</Button>
+        </div>
+      </div>
+    );
+  } else if (rows > 1 && cols <= 1) {
+    return (
+      <div className="App">
+        {/* <Header/> */}
+        <Grid rows={rows} cols={cols} />
+        <div>
+          <Button onClick={() => setCols(cols + 1)}>+Cols</Button>
+          <Button onClick={() => setCols(cols + 0)}>-Cols</Button>
+          <Button onClick={() => setRows(rows + 1)}>+rows</Button>
+          <Button onClick={() => setRows(rows - 1)}>-rows</Button>
+        </div>
+      </div>
+    );
+  } else if (rows <= 1 && cols > 1) {
+    return (
+      <div className="App">
+        {/* <Header/> */}
+        <Grid rows={rows} cols={cols} />
+        <div>
+          <Button onClick={() => setCols(cols + 1)}>+Cols</Button>
+          <Button onClick={() => setCols(cols - 1)}>-Cols</Button>
+          <Button onClick={() => setRows(rows + 1)}>+rows</Button>
+          <Button onClick={() => setRows(rows + 0)}>-rows</Button>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="App">
+        {/* <Header/> */}
+        <Grid rows={rows} cols={cols} />
+        <div>
+          <Button onClick={() => setCols(cols + 1)}>+Cols</Button>
+          <Button onClick={() => setCols(cols + 0)}>-Cols</Button>
+          <Button onClick={() => setRows(rows + 1)}>+rows</Button>
+          <Button onClick={() => setRows(rows + 0)}>-rows</Button>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
