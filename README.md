@@ -18,13 +18,7 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   
     App state logic needs to set a row/column floor at 1 (via buttons) 
     
-    We have form input data being returned from Form being passed to Grid 
-    What we need to do is process it in Grid and save in array format with defined indexes (where they're coming from)
-    Each Grid element needs to report its index
-    We also need the sub indices/positions of the values in each pair or forms (whether the first or second) 
-    
-    David suggested reporting grid ID in the for loop (we don't really do this with the current strategy but theoretically can
-    Then we have to figure out how to distinguish between the "comma separated" values 
+    Access matrix locations at the app level descending from row to column to subform 
     
   **Ganesh:**
     
