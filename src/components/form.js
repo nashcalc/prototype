@@ -31,7 +31,7 @@ export default function SimpleCard() {
     setValue2(event.target.value);
   };
 
-  const [myValue, setValue] = useState("");
+  const [myValue1, setValue] = useState("");
   const [myValue2, setValue2] = useState("");
 
   return (
@@ -43,7 +43,7 @@ export default function SimpleCard() {
             {
               <form>
                 <TextField
-                  value={myValue}
+                  value={myValue1}
                   onChange={handleChange}
                   id="subform1"
                   label=""
@@ -69,7 +69,7 @@ export default function SimpleCard() {
           <div>)</div>
         </CardActions>
       </Card>
-      {myValue},{myValue2}
+      {myValue1},{myValue2}
     </div>
   );
 }
