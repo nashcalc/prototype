@@ -13,6 +13,8 @@
 
 # misc
 .DS_Store
+venv
+__pycache__
 .env.local
 .env.development.local
 .env.test.local
