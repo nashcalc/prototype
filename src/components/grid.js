@@ -27,8 +27,8 @@ export default function SpacingGrid({ rows, cols }) {
         <Grid item xs={12}>
           <Grid container justify="center">
             {colMap.map((value) => (
-              <Grid key={value} id= {"col"+value} item>
-                <Form />
+              <Grid key={value} id= {"row"+i+"col"+value} item>
+                <Form location = {"row"+i+"col"+value}/>
               </Grid>
             ))}
           </Grid>
@@ -36,5 +36,6 @@ export default function SpacingGrid({ rows, cols }) {
       </Grid>
     );
   }
+
   return gridContainer;
 }

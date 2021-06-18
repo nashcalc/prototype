@@ -15,13 +15,16 @@ function App() {
     });
   }, []);
 
-  //const [forms, setForms] =
-
-  // function handleSetForm(){
-  //   var formCopy  = JSON.parse(JSON.stringify(obj));
-  //   //
-  //   setForms(formCopy);
-  // }
+  for (var j = 0; j < rows; j++){
+    for (var k = 0; k < cols; k++){
+      for (var l = 1; l < 3; l++){
+        var formlog = document.getElementById("row"+j+"col"+k+"subform"+l)
+        if (formlog != null){
+          console.log(formlog.value)
+        }
+      }
+    }
+  }
 
   if (rows > 1 && cols > 1) {
     return (

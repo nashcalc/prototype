@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleCard() {
+export default function SimpleCard({location}) {
   const classes = useStyles();
 
   const handleChange = (event) => {
@@ -45,7 +45,7 @@ export default function SimpleCard() {
                 <TextField
                   value={myValue1}
                   onChange={handleChange}
-                  id="subform1"
+                  id= {location+"subform1"}
                   label=""
                   InputProps={{ disableUnderline: true }}
                 />
@@ -59,7 +59,7 @@ export default function SimpleCard() {
                 <TextField
                   value={myValue2}
                   onChange={handleChange2}
-                  id="subform2"
+                  id={location+"subform2"}
                   label=""
                   InputProps={{ disableUnderline: true }}
                 />
@@ -69,7 +69,6 @@ export default function SimpleCard() {
           <div>)</div>
         </CardActions>
       </Card>
-      {myValue1},{myValue2}
     </div>
   );
 }
