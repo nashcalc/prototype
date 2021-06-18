@@ -23,11 +23,11 @@ export default function SpacingGrid({ rows, cols }) {
   var gridContainer = [];
   for (var i = 0; i < rows; i++) {
     gridContainer.push(
-      <Grid container className={classes.root} spacing={2} id={i}>
+      <Grid container className={classes.root} spacing={2} id={"row"+i}>
         <Grid item xs={12}>
           <Grid container justify="center">
             {colMap.map((value) => (
-              <Grid key={value} id={value} item>
+              <Grid key={value} id= {"col"+value} item>
                 <Form />
               </Grid>
             ))}
