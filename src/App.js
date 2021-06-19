@@ -10,21 +10,9 @@ function App() {
   const [rows, setRows] = useState(2);
   const [cols, setCols] = useState(2);
 
-  const [currentTime, setCurrentTime] = useState(0);
-
-  const [postId, setPostId] = useState(null);
-
   const trigger = useRecoilState(triggered);
 
   const axios = require("axios");
-
-  useEffect(() => {
-    fetch("/time")
-      .then((res) => res.json())
-      .then((data) => {
-        setCurrentTime(data.time);
-      });
-  }, []);
 
   useEffect(() => {
     var values = document.getElementsByClassName(
@@ -44,10 +32,16 @@ function App() {
     }
     console.log(JSON.stringify({ matrixdict }));
     axios({
-      method: "post",
+      method: "POST",
       url: "/test",
       data: { matrixdict },
-    });
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }, [trigger]);
 
   if (rows > 1 && cols > 1) {
@@ -61,8 +55,6 @@ function App() {
           <Button onClick={() => setRows(rows + 1)}>+rows</Button>
           <Button onClick={() => setRows(rows - 1)}>-rows</Button>
         </div>
-        <div>Post Id: {postId}</div>
-        <p>The current time is {currentTime}.</p>
       </div>
     );
   } else if (rows > 1 && cols <= 1) {
