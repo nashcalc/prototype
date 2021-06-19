@@ -42,6 +42,7 @@ function App() {
     var values = document.getElementsByClassName(
       "MuiInputBase-input MuiInput-input"
     );
+    //this is where we send post to api instead of console log
     console.log(values);
   }, [trigger]);
 
