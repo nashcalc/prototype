@@ -1,38 +1,49 @@
 import "./App.css";
 import Grid from "./components/grid.js";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { RecoilRoot } from "recoil";
 import Button from "@material-ui/core/Button";
+import { triggered } from "./atomy.js";
+import { useRecoilState } from "recoil";
 
 function App() {
-  const [rows, setRows] = React.useState(2);
-  const [cols, setCols] = React.useState(2);
+  const [rows, setRows] = useState(2);
+  const [cols, setCols] = useState(2);
 
-  const [currentTime, setCurrentTime] = React.useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
 
-  React.useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
-    });
+  const [postId, setPostId] = useState(null);
+
+  const [trigger, changeTrigger] = useRecoilState(triggered);
+
+  useEffect(() => {
+    fetch("/time")
+      .then((res) => res.json())
+      .then((data) => {
+        setCurrentTime(data.time);
+      });
   }, []);
 
-  React.useEffect(() => {
-    fetch('/nasheq', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title: 'Please' })
-    })
+  useEffect(() => {
+    // POST request using fetch inside useEffect React hook
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: "React Hooks POST Request Example" }),
+    };
+    fetch("/test", requestOptions)
+      .then((response) => response.json())
+      .then((data) => setPostId(data.id));
+
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
 
-  for (var j = 0; j < rows; j++){
-    for (var k = 0; k < cols; k++){
-      for (var l = 1; l < 3; l++){
-        var formlog = document.getElementById("row"+j+"col"+k+"subform"+l)
-        if (formlog != null){
-          console.log(formlog.value)
-        }
-      }
-    }
-  }
+  useEffect(() => {
+    var values = document.getElementsByClassName(
+      "MuiInputBase-input MuiInput-input"
+    );
+    console.log(values);
+  }, [trigger]);
 
   if (rows > 1 && cols > 1) {
     return (
@@ -45,6 +56,7 @@ function App() {
           <Button onClick={() => setRows(rows + 1)}>+rows</Button>
           <Button onClick={() => setRows(rows - 1)}>-rows</Button>
         </div>
+        <div>Post Id: {postId}</div>
         <p>The current time is {currentTime}.</p>
       </div>
     );

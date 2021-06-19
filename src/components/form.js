@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
+import { triggered } from "../atomy.js";
+import { useRecoilState } from "recoil";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,15 +22,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleCard({location}) {
+export default function SimpleCard({ location }) {
   const classes = useStyles();
+
+  const [trigger, changeTrigger] = useRecoilState(triggered);
 
   const handleChange = (event) => {
     setValue(event.target.value);
+    changeTrigger(!trigger);
   };
 
   const handleChange2 = (event) => {
     setValue2(event.target.value);
+    changeTrigger(!trigger);
   };
 
   const [myValue1, setValue] = useState("");
@@ -43,9 +49,10 @@ export default function SimpleCard({location}) {
             {
               <form>
                 <TextField
+                  className="formvalue"
                   value={myValue1}
                   onChange={handleChange}
-                  id= {location+"subform1"}
+                  id={location + "subform1"}
                   label=""
                   InputProps={{ disableUnderline: true }}
                 />
@@ -57,9 +64,10 @@ export default function SimpleCard({location}) {
             {
               <form>
                 <TextField
+                  className="formvalue"
                   value={myValue2}
                   onChange={handleChange2}
-                  id={location+"subform2"}
+                  id={location + "subform2"}
                   label=""
                   InputProps={{ disableUnderline: true }}
                 />
