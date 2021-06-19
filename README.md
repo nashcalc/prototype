@@ -9,16 +9,20 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
 
 **Resources:**
   https://docs.google.com/document/d/1koHvLZkfmVZ1JqvQaXxrCAGBeWYqXPgocr3aKMm2IfA/edit
-  
-  This might be helpful for us both with phase 1: https://www.youtube.com/watch?v=zgKH12s_95A
 
 **Key Tasks:**
   
   **Ben:**  
   
-    App state logic needs to set a row/column floor at 1 (via buttons) 
-    
-    Access matrix locations at the app level descending from row to column to subform 
+    Make solvenasheq output human readable from existing arrays
+  
+    Eliminate axios api calls anytime that form values are not complete and numbers/floats and move error handling from axios to when call condition is met/unmet 
+  
+    Fix logic for setting row and column floor on buttons 
+  
+    Update routes to /api/... to make it more cooperative with router and deploy 
+  
+    Deploy to nashcalc.com
     
   **Ganesh:**
     
@@ -26,12 +30,8 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
         Finish tutorial here: https://betterprogramming.pub/building-a-basic-header-with-materialui-and-react-js-d650f75b4b0a + next tutorial 
   
   **Unassigned (take what you want and throw it under your name):** 
-  
-    Python middle-end bridge with Django (https://www.youtube.com/watch?v=s6Xi7x4G7yg)
 
     Animate adding or removing form cards 
-    
-    gambit solve for strategic nash eq 
     
     Affix row and col buttons to position on page so they don't move when things are scaled 
     
@@ -51,7 +51,6 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   **Future Features:** 
   
     Take a look at gambit + other libraries for future feature ideas / opportunities 
-      -note that the manner in which we use the python bridge means that we'll have access to other game theory libraries for other features that will all be handled behind the scenes 
       
   **Approximate feature roadmap:** 
     https://docs.google.com/document/d/1RZujZt8qM5HGe2zr7-2UWy83omNnGKIroRp1M7GaRZw/edit
