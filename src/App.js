@@ -1,10 +1,10 @@
 import "./App.css";
 import Grid from "./components/grid.js";
 import React, { useState, useEffect } from "react";
-import { RecoilRoot } from "recoil";
 import Button from "@material-ui/core/Button";
 import { triggered } from "./atomy.js";
 import { useRecoilState } from "recoil";
+import axios from "axios";
 
 function App() {
   const [rows, setRows] = useState(2);
@@ -14,7 +14,9 @@ function App() {
 
   const [postId, setPostId] = useState(null);
 
-  const [trigger, changeTrigger] = useRecoilState(triggered);
+  const trigger = useRecoilState(triggered);
+
+  const axios = require("axios");
 
   useEffect(() => {
     fetch("/time")
@@ -25,25 +27,27 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // POST request using fetch inside useEffect React hook
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: "React Hooks POST Request Example" }),
-    };
-    fetch("/test", requestOptions)
-      .then((response) => response.json())
-      .then((data) => setPostId(data.id));
-
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
-  }, []);
-
-  useEffect(() => {
     var values = document.getElementsByClassName(
       "MuiInputBase-input MuiInput-input"
     );
     //this is where we send post to api instead of console log
-    console.log(values);
+    //we've managed to make [trigger] in recoil atom update every time a
+    //new character is added or removed in any form
+    var matrixdict = [];
+    for (var i in values) {
+      if (values[i].id != null && values[i].value != null) {
+        matrixdict.push({
+          location: values[i].id,
+          value: values[i].value,
+        });
+      }
+    }
+    console.log(JSON.stringify({ matrixdict }));
+    axios({
+      method: "post",
+      url: "/test",
+      data: { matrixdict },
+    });
   }, [trigger]);
 
   if (rows > 1 && cols > 1) {

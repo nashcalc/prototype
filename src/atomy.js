@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { atom } from "recoil";
 
 export const triggered = atom({

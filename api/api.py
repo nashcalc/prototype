@@ -13,7 +13,7 @@ def get_current_time():
 @app.route('/test', methods=['POST'])
 def postTest():
     data = request.get_json()
-    return data.title
+    return data
 
 if __name__ == "__main__":
     app.run(debug = True)
