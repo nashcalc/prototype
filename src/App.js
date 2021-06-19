@@ -10,6 +10,8 @@ function App() {
   const [rows, setRows] = useState(2);
   const [cols, setCols] = useState(2);
 
+  const [eqresponse, setEqResponse] = useState(null);
+
   const trigger = useRecoilState(triggered);
 
   const axios = require("axios");
@@ -30,17 +32,17 @@ function App() {
         });
       }
     }
-    console.log(JSON.stringify({ matrixdict }));
     axios({
       method: "POST",
       url: "/test",
       data: { matrixdict },
     })
       .then(function (response) {
-        console.log(response);
+        setEqResponse(response.data);
       })
       .catch(function (error) {
         console.log(error);
+        setEqResponse("Please complete the payoff matrix");
       });
   }, [trigger]);
 
@@ -54,6 +56,7 @@ function App() {
           <Button onClick={() => setCols(cols - 1)}>-Cols</Button>
           <Button onClick={() => setRows(rows + 1)}>+rows</Button>
           <Button onClick={() => setRows(rows - 1)}>-rows</Button>
+          <div>{eqresponse}</div>
         </div>
       </div>
     );
