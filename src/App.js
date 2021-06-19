@@ -15,6 +15,14 @@ function App() {
     });
   }, []);
 
+  React.useEffect(() => {
+    fetch('/nasheq', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Please' })
+    })
+  }, []);
+
   for (var j = 0; j < rows; j++){
     for (var k = 0; k < cols; k++){
       for (var l = 1; l < 3; l++){
