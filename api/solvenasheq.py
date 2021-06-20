@@ -24,14 +24,14 @@ def solvefornasheq(testdict):
     payoffs1 = []
     """assuming equal length payoffs which will be enforced before axios post"""
     for i in range(len(player1)):
-        payoffs1.append(int(player1[i]["value"]))
+        payoffs1.append(float(player1[i]["value"]))
 
     numsplits1 = len(payoffs1)/len(rows)
     split1 = np.array_split(payoffs1,numsplits1)
 
     payoffs2 = []
     for i in range(len(player2)):
-        payoffs2.append(int(player2[i]["value"]))
+        payoffs2.append(float(player2[i]["value"]))
 
     numsplits2 = len(payoffs2)/len(rows)
     split2 = np.array_split(payoffs2,numsplits2)
@@ -46,5 +46,7 @@ def solvefornasheq(testdict):
     eqs = []
     for eq in equilibria:
         eqs.append(eq)
+
+    eqs = np.around(eqs,3)
 
     return eqs

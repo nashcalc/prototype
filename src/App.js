@@ -50,6 +50,7 @@ function App() {
     return (
       <div className="App">
         {/* <Header/> */}
+        <div>Welcome to NashCalc</div>
         <Grid rows={rows} cols={cols} />
         <div>
           <Button onClick={() => setCols(cols + 1)}>+Cols</Button>
