@@ -14,6 +14,8 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   
   **Ben:**  
   
+    Fix logic for setting row and column floor on buttons (could store the main div element somewhere and just change stuff with usestate, saving a ton of space)
+  
     Make solvenasheq output human readable from existing arrays -- first convert arrays to lists and then use logic to copy site 
     
     Get example data from the forms and leave commented above the function for testing
@@ -21,8 +23,6 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
     Eliminate axios api calls anytime that form values are not complete and numbers/floats and move error handling from axios to when call condition is met/unmet 
   
     Highlight the form if it's a nash eq in pure or highlight the others on a gradient of color depending on probability in mixed strategies (can pass a state down to the form)
-  
-    Fix logic for setting row and column floor on buttons 
   
     Update routes to /api/... to make it more cooperative with router and deploy 
   
