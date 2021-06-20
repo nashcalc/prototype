@@ -18,15 +18,21 @@ function App() {
   const axios = require("axios");
 
   function displayeqs(data) {
-    console.log(data);
+    //console.log(data);
     if (data != null) {
       var display_array_prediv = data.split("],");
-      //console.log(display_array);
+      var display_array_postdiv = [];
+      display_array_prediv.forEach((element) =>
+        display_array_postdiv.push(
+          <div>
+            {element
+              .replaceAll("[", "")
+              .replaceAll("'", "")
+              .replaceAll("]", "")}
+          </div>
+        )
+      );
     }
-    var display_array_postdiv = [];
-    display_array_prediv.forEach((element) =>
-      display_array_postdiv.push(<div>{element}</div>)
-    );
     return display_array_postdiv;
   }
 
@@ -46,7 +52,7 @@ function App() {
         });
       }
     }
-    //console.log(JSON.stringify(matrixdict));
+    console.log(JSON.stringify(matrixdict));
     axios({
       method: "POST",
       url: "/test",

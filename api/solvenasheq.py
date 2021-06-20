@@ -8,6 +8,7 @@ testdictmorerows = {"matrixdict":[{"location":"row0col0subform1","value":"8"},{"
 
 testdictmorecols = {"matrixdict": [{"location":"row0col0subform1","value":"8"},{"location":"row0col0subform2","value":"5"},{"location":"row0col1subform1","value":"6"},{"location":"row0col1subform2","value":"3"},{"location":"row0col2subform1","value":"7"},{"location":"row0col2subform2","value":"4"},{"location":"row1col0subform1","value":"2"},{"location":"row1col0subform2","value":"3"},{"location":"row1col1subform1","value":"8"},{"location":"row1col1subform2","value":"4"},{"location":"row1col2subform1","value":"2"},{"location":"row1col2subform2","value":"6"}]}
 
+testdictallmixed = {"matrixdict":[{"location":"row0col0subform1","value":"2"},{"location":"row0col0subform2","value":"1"},{"location":"row0col1subform1","value":"1"},{"location":"row0col1subform2","value":"2"},{"location":"row1col0subform1","value":"1"},{"location":"row1col0subform2","value":"2"},{"location":"row1col1subform1","value":"2"},{"location":"row1col1subform2","value":"1"}]}
 
 def solvefornasheq(testdict):
     for element in testdict["matrixdict"]:
@@ -79,14 +80,17 @@ def solvefornasheq(testdict):
     full_interpretation = []
     for inter in interpretation:
         for inte in interpretation[inter]:
+            probabilities = []
             for i in inte:
                 if i>0:
-                    if i == 1.0:
-                        message = "Player" + " plays strategy " + str(inte.tolist().index(i)+1)
-                    else:
-                        message = "Player" + " plays strategy " + str(inte.tolist().index(i)+1) + " with probability " + str(i)
-                    full_interpretation.append([inter,message])
-                    #print(message)
+                    probabilities.append(i)
+            indices = [j for j, x in enumerate(inte.tolist()) if x>0]
+            for i in range(len(indices)):
+                if probabilities[i] == 1:
+                    message = "Player" + " plays strategy " + str(indices[i]+1)
+                else:
+                    message = "Player" + " plays strategy " + str(indices[i]+1) + " with probability " + str(probabilities[i])
+                full_interpretation.append([inter,message])
 
     #print(full_interpretation)
             #print(inte)
@@ -96,4 +100,4 @@ def solvefornasheq(testdict):
     #print(new_eqs)
 
     return full_interpretation
-#print(solvefornasheq(testdictmorerows))
+#print(solvefornasheq(testdictmultipleeq))
