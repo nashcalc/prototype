@@ -14,7 +14,7 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   
   **Ben:**  
   
-    Solve nasheq needs to work for arrays of dimensions 2+/2+
+    Numpy manipulation methods do not work for arrays of dimensions 2+/2+ as they become too nested (find a universal way to round and get absolute values) 
     
     Get example data from the forms and leave commented above the function for testing
     
