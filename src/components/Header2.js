@@ -25,7 +25,7 @@ export default function DenseAppBar() {
       <AppBar position="static">
         <Toolbar variant="dense">
           <Typography variant="h6" color="inherit">
-            <h1>Welcome to NashCalc: the intuitive way to game theorize</h1>
+            <h1>Welcome to NashCalc: The Intuitive Way to Game Theorize</h1>
           </Typography>
         </Toolbar>
       </AppBar>

@@ -63,8 +63,37 @@ def solvefornasheq(testdict):
             tempeq.append(np.abs(np.around(array,3)))
         new_eqs.append(tempeq)
 
-    #print(new_eqs)
-    #print(game_to_solve)
+    interpretation = {}
+    for i in range(len(new_eqs)):
+        interpretation["Nash Eq "+str(i+1)]= new_eqs[i]
 
-    return new_eqs
+    """interpretation_by_player = {}
+    for k,v in interpretation.items():
+        lst = [list(x) for x in v]
+        for elem in lst:
+                if lst.index(elem) == 0:
+                    print("Player 1")
+                elif lst.index(elem) == 1:
+                    print("Player 2")"""
+
+    full_interpretation = []
+    for inter in interpretation:
+        for inte in interpretation[inter]:
+            for i in inte:
+                if i>0:
+                    if i == 1.0:
+                        message = "Player" + " plays strategy " + str(inte.tolist().index(i)+1)
+                    else:
+                        message = "Player" + " plays strategy " + str(inte.tolist().index(i)+1) + " with probability " + str(i)
+                    full_interpretation.append([inter,message])
+                    #print(message)
+
+    #print(full_interpretation)
+            #print(inte)
+    #print(interpretation)
+    #print(listeqs)
+    #print(game_to_solve)
+    #print(new_eqs)
+
+    return full_interpretation
 #print(solvefornasheq(testdictmorerows))

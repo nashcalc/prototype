@@ -9,16 +9,16 @@ import { useRecoilState } from "recoil";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
-      margin: theme.spacing(0.1),
-      width: "20ch",
+      margin: theme.spacing(0),
+      width: "12ch",
     },
     minWidth: 40,
   },
   title: {
-    fontSize: 12,
+    fontSize: 11,
   },
   pos: {
-    marginBottom: 12,
+    marginBottom: 10,
   },
 }));
 

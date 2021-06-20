@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     width: 100,
   },
   control: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(5),
   },
 }));
 

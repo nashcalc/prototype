@@ -17,6 +17,19 @@ function App() {
 
   const axios = require("axios");
 
+  function displayeqs(data) {
+    console.log(data);
+    if (data != null) {
+      var display_array_prediv = data.split("],");
+      //console.log(display_array);
+    }
+    var display_array_postdiv = [];
+    display_array_prediv.forEach((element) =>
+      display_array_postdiv.push(<div>{element}</div>)
+    );
+    return display_array_postdiv;
+  }
+
   useEffect(() => {
     var values = document.getElementsByClassName(
       "MuiInputBase-input MuiInput-input"
@@ -33,7 +46,7 @@ function App() {
         });
       }
     }
-    console.log(JSON.stringify(matrixdict));
+    //console.log(JSON.stringify(matrixdict));
     axios({
       method: "POST",
       url: "/test",
@@ -60,7 +73,7 @@ function App() {
           <Button onClick={() => setCols(cols - 1)}>-Cols</Button>
           <Button onClick={() => setRows(rows + 1)}>+rows</Button>
           <Button onClick={() => setRows(rows - 1)}>-rows</Button>
-          <div>{eqresponse}</div>
+          <div>{displayeqs(eqresponse)}</div>
         </div>
       </div>
     );
