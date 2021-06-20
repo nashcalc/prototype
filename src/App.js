@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import { triggered } from "./atomy.js";
 import { useRecoilState } from "recoil";
 import axios from "axios";
+import Header2 from "./components/Header2.js";
 
 function App() {
   const [rows, setRows] = useState(2);
@@ -32,6 +33,7 @@ function App() {
         });
       }
     }
+    console.log(JSON.stringify(matrixdict));
     axios({
       method: "POST",
       url: "/test",
@@ -49,8 +51,9 @@ function App() {
   if (rows > 1 && cols > 1) {
     return (
       <div className="App">
-        {/* <Header/> */}
-        <div>Welcome to NashCalc</div>
+        <div>
+          <Header2 />
+        </div>
         <Grid rows={rows} cols={cols} />
         <div>
           <Button onClick={() => setCols(cols + 1)}>+Cols</Button>

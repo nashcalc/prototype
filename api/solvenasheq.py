@@ -1,6 +1,14 @@
 import nashpy as nash
 import numpy as np
 
+testdictsingleeq = {"matrixdict":[{"location":"row0col0subform1","value":"8"},{"location":"row0col0subform2","value":"7"},{"location":"row0col1subform1","value":"6"},{"location":"row0col1subform2","value":"5"},{"location":"row1col0subform1","value":"4"},{"location":"row1col0subform2","value":"3"},{"location":"row1col1subform1","value":"2"},{"location":"row1col1subform2","value":"1"}]}
+testdictmultipleeq = {"matrixdict":[{"location":"row0col0subform1","value":"8"},{"location":"row0col0subform2","value":"5"},{"location":"row0col1subform1","value":"6"},{"location":"row0col1subform2","value":"3"},{"location":"row1col0subform1","value":"2"},{"location":"row1col0subform2","value":"3"},{"location":"row1col1subform1","value":"8"},{"location":"row1col1subform2","value":"4"}]}
+
+testdictmorerows = {"matrixdict":[{"location":"row0col0subform1","value":"8"},{"location":"row0col0subform2","value":"5"},{"location":"row0col1subform1","value":"6"},{"location":"row0col1subform2","value":"3"},{"location":"row1col0subform1","value":"2"},{"location":"row1col0subform2","value":"3"},{"location":"row1col1subform1","value":"8"},{"location":"row1col1subform2","value":"4"},{"location":"row2col0subform1","value":"2"},{"location":"row2col0subform2","value":"5"},{"location":"row2col1subform1","value":"7"},{"location":"row2col1subform2","value":"8"}]}
+
+testdictmorecols = {"matrixdict": [{"location":"row0col0subform1","value":"8"},{"location":"row0col0subform2","value":"5"},{"location":"row0col1subform1","value":"6"},{"location":"row0col1subform2","value":"3"},{"location":"row0col2subform1","value":"7"},{"location":"row0col2subform2","value":"4"},{"location":"row1col0subform1","value":"2"},{"location":"row1col0subform2","value":"3"},{"location":"row1col1subform1","value":"8"},{"location":"row1col1subform2","value":"4"},{"location":"row1col2subform1","value":"2"},{"location":"row1col2subform2","value":"6"}]}
+
+
 def solvefornasheq(testdict):
     for element in testdict["matrixdict"]:
         splitter = element["location"]
@@ -40,13 +48,23 @@ def solvefornasheq(testdict):
     B = split2
 
     game_to_solve = nash.Game(A,B)
-    print(game_to_solve)
+
     equilibria = game_to_solve.vertex_enumeration()
 
     eqs = []
     for eq in equilibria:
-        eqs.append(eq)
+        eqs.append(list(eq))
 
-    eqs = np.around(eqs,3)
+    new_eqs = []
 
-    return eqs
+    for eq in eqs:
+        tempeq = []
+        for array in eq:
+            tempeq.append(np.abs(np.around(array,3)))
+        new_eqs.append(tempeq)
+
+    #print(new_eqs)
+    #print(game_to_solve)
+
+    return new_eqs
+#print(solvefornasheq(testdictmorerows))

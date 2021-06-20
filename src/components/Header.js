@@ -4,6 +4,7 @@ import React from "react";
 const useStyles = makeStyles(() => ({
   header: {
     backgroundColor: "#400CCC",
+    top: 100, //
   },
 
   logo: {
