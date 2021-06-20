@@ -14,9 +14,15 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   
   **Ben:**  
   
+    Solve nasheq needs to work for arrays of dimensions 2+/2+
+    
+    Get example data from the forms and leave commented above the function for testing
+    
     Make solvenasheq output human readable from existing arrays
   
     Eliminate axios api calls anytime that form values are not complete and numbers/floats and move error handling from axios to when call condition is met/unmet 
+  
+    Highlight the form if it's a nash eq in pure or highlight the others on a gradient of color depending on probability in mixed strategies (can pass a state down to the form)
   
     Fix logic for setting row and column floor on buttons 
   
