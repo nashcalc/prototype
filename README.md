@@ -14,11 +14,9 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   
   **Ben:**  
   
-    Numpy manipulation methods do not work for arrays of dimensions 2+/2+ as they become too nested (find a universal way to round and get absolute values) 
+    Make solvenasheq output human readable from existing arrays -- first convert arrays to lists and then use logic to copy site 
     
     Get example data from the forms and leave commented above the function for testing
-    
-    Make solvenasheq output human readable from existing arrays
   
     Eliminate axios api calls anytime that form values are not complete and numbers/floats and move error handling from axios to when call condition is met/unmet 
   
