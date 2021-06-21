@@ -21,6 +21,8 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
     
     Add expected payout for mixed strategies 
     
+    Center input in forms
+    
     Try and combine all nasheqs into a single statement 
   
     Highlight the form if it's a nash eq in pure or highlight the others on a gradient of color depending on probability in mixed strategies (can pass a state down to the form)
