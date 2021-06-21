@@ -15,17 +15,21 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   **Ben:**  
   
     Fix logic for setting row and column floor on buttons (could store the main div element somewhere and just change stuff with usestate, saving a ton of space)
+      - Everything works except states are being read as minusColState == 1 and minusRowState == 1 which doesn't really make sense 
+        -- This is making the grid default to one row or col when minus button is pressed 
   
     Eliminate axios api calls anytime that form values are not complete and numbers/floats and move error handling from axios to when call condition is met/unmet
     as opposed to just error handling 
     
     Add expected payout for mixed strategies 
     
-    Center input in forms
+    Buttons are no longer styled and need to be redone (perhaps with the floating action buttons) 
     
     Try and combine all nasheqs into a single statement 
   
-    Highlight the form if it's a nash eq in pure or highlight the others on a gradient of color depending on probability in mixed strategies (can pass a state down to the form)
+    Highlight or color the form if it's a nash eq in pure or highlight the others on a gradient of color depending on probability in mixed strategies (can pass a state down to the form)
+  
+    Center input in textfields
   
     Update routes to /api/... to make it more cooperative with router and deploy 
   
@@ -50,7 +54,7 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
     
     Zoom in and out like google sheets ui: https://blog.logrocket.com/building-inline-editable-ui-in-react/
     
-    Buttons are no longer styled and need to be redone (perhaps with the floating action buttons) 
+    
     
     When rows exceed height of screen everything scrolls down whereas when columns exceed width everything gets screwed up and they tend to wrap around 
       Get rid of this behavior and make it such that the whole thing can scroll horizontally to account for width expansion 
