@@ -19,7 +19,7 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
     
     Add expected payout for mixed strategies 
     
-    Buttons are no longer styled and need to be redone (perhaps with the floating action buttons) 
+    Align styled buttons
     
     Try and combine all nasheqs into a single statement 
   
