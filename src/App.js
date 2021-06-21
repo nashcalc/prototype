@@ -7,6 +7,8 @@ import { useRecoilState } from "recoil";
 import axios from "axios";
 import Header2 from "./components/Header2.js";
 
+/* eslint-disable no-unused-expressions */
+
 function App() {
   const [rows, setRows] = useState(2);
   const [cols, setCols] = useState(2);
@@ -52,7 +54,7 @@ function App() {
         });
       }
     }
-    console.log(JSON.stringify(matrixdict));
+    //console.log(JSON.stringify(matrixdict));
     axios({
       method: "POST",
       url: "/test",
@@ -67,62 +69,46 @@ function App() {
       });
   }, [trigger]);
 
-  if (rows > 1 && cols > 1) {
-    return (
-      <div className="App">
-        <div>
-          <Header2 />
-        </div>
-        <Grid rows={rows} cols={cols} />
-        <div>
-          <Button onClick={() => setCols(cols + 1)}>+Cols</Button>
-          <Button onClick={() => setCols(cols - 1)}>-Cols</Button>
-          <Button onClick={() => setRows(rows + 1)}>+rows</Button>
-          <Button onClick={() => setRows(rows - 1)}>-rows</Button>
-          <div>{displayeqs(eqresponse)}</div>
-        </div>
+  const [minusRowsState, setMinusRowsState] = useState(-1);
+  const [minusColsState, setMinusColsState] = useState(-1);
+
+  useEffect(() => {
+    if (rows > 1 && cols > 1) {
+      setMinusRowsState(-1);
+      setMinusColsState(-1);
+    } else if (rows > 1 && cols <= 1) {
+      setMinusColsState(0);
+      setMinusRowsState(-1);
+    } else if (rows <= 1 && cols > 1) {
+      setMinusRowsState(0);
+      setMinusColsState(-1);
+    } else {
+      setMinusRowsState(0);
+      setMinusColsState(0);
+    }
+  }, [rows, cols]);
+
+  console.log(String(minusColsState));
+  console.log(String(minusRowsState));
+  return (
+    <div className="App">
+      <div>
+        <Header2 />
       </div>
-    );
-  } else if (rows > 1 && cols <= 1) {
-    return (
-      <div className="App">
-        {/* <Header/> */}
-        <Grid rows={rows} cols={cols} />
+      <Grid rows={rows} cols={cols} />
+      <div>
         <div>
-          <Button onClick={() => setCols(cols + 1)}>+Cols</Button>
-          <Button onClick={() => setCols(cols + 0)}>-Cols</Button>
+          <Button onClick={() => setRows(rows + minusRowsState)}>-rows</Button>
           <Button onClick={() => setRows(rows + 1)}>+rows</Button>
-          <Button onClick={() => setRows(rows - 1)}>-rows</Button>
         </div>
-      </div>
-    );
-  } else if (rows <= 1 && cols > 1) {
-    return (
-      <div className="App">
-        {/* <Header/> */}
-        <Grid rows={rows} cols={cols} />
         <div>
-          <Button onClick={() => setCols(cols + 1)}>+Cols</Button>
-          <Button onClick={() => setCols(cols - 1)}>-Cols</Button>
-          <Button onClick={() => setRows(rows + 1)}>+rows</Button>
-          <Button onClick={() => setRows(rows + 0)}>-rows</Button>
+          <Button onClick={() => setCols(cols + minusColsState)}>-cols</Button>
+          <Button onClick={() => setCols(cols + 1)}>+cols</Button>
         </div>
+        <div>{displayeqs(eqresponse)}</div>
       </div>
-    );
-  } else {
-    return (
-      <div className="App">
-        {/* <Header/> */}
-        <Grid rows={rows} cols={cols} />
-        <div>
-          <Button onClick={() => setCols(cols + 1)}>+Cols</Button>
-          <Button onClick={() => setCols(cols + 0)}>-Cols</Button>
-          <Button onClick={() => setRows(rows + 1)}>+rows</Button>
-          <Button onClick={() => setRows(rows + 0)}>-rows</Button>
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;

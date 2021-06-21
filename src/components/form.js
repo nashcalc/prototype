@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
+import red from "@material-ui/core/colors/red";
 import { triggered } from "../atomy.js";
 import { useRecoilState } from "recoil";
 
@@ -19,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
   },
   pos: {
     marginBottom: 10,
+  },
+  redCard: {
+    backgroundColor: red[300],
   },
 }));
 
@@ -64,6 +68,9 @@ export default function SimpleCard({ location }) {
             {
               <form>
                 <TextField
+                  style={{
+                    textAlign: "center",
+                  }}
                   className="formvalue"
                   value={myValue2}
                   onChange={handleChange2}
