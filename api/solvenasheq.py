@@ -79,7 +79,9 @@ def solvefornasheq(testdict):
 
     full_interpretation = []
     for inter in interpretation:
-        for inte in interpretation[inter]:
+        for i in range(len(interpretation[inter])):
+            inte = interpretation[inter][i]
+            player = i+1
             probabilities = []
             for i in inte:
                 if i>0:
@@ -87,17 +89,10 @@ def solvefornasheq(testdict):
             indices = [j for j, x in enumerate(inte.tolist()) if x>0]
             for i in range(len(indices)):
                 if probabilities[i] == 1:
-                    message = "Player" + " plays strategy " + str(indices[i]+1)
+                    message = "Player " + str(player) + " plays strategy " + str(indices[i]+1)
                 else:
-                    message = "Player" + " plays strategy " + str(indices[i]+1) + " with probability " + str(probabilities[i])
+                    message = "Player " + str(player) + " plays strategy " + str(indices[i]+1) + " with probability " + str(probabilities[i])
                 full_interpretation.append([inter,message])
-
-    #print(full_interpretation)
-            #print(inte)
     #print(interpretation)
-    #print(listeqs)
-    #print(game_to_solve)
-    #print(new_eqs)
-
     return full_interpretation
-#print(solvefornasheq(testdictmultipleeq))
+#print(solvefornasheq(testdictsingleeq))
