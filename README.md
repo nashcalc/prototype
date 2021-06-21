@@ -14,10 +14,6 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   
   **Ben:**  
   
-    Fix logic for setting row and column floor on buttons (could store the main div element somewhere and just change stuff with usestate, saving a ton of space)
-      - Everything works except states are being read as minusColState == 1 and minusRowState == 1 which doesn't really make sense 
-        -- This is making the grid default to one row or col when minus button is pressed 
-  
     Eliminate axios api calls anytime that form values are not complete and numbers/floats and move error handling from axios to when call condition is met/unmet
     as opposed to just error handling 
     
