@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
 import red from "@material-ui/core/colors/red";
 import { triggered } from "../atomy.js";
 import { useRecoilState } from "recoil";
@@ -26,8 +27,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleCard({ location }) {
+export default function SimpleCard({ location, highlighted }) {
   const classes = useStyles();
+
+  console.log(highlighted + location);
+
+  if (highlighted == true) {
+    var color = "blue";
+  } else {
+    var color = "white";
+  }
 
   const [trigger, changeTrigger] = useRecoilState(triggered);
 
@@ -47,42 +56,46 @@ export default function SimpleCard({ location }) {
   return (
     <div>
       <Card className={classes.root}>
-        <CardActions>
-          <div>(</div>
-          <div class="form-control">
-            {
-              <form>
-                <TextField
-                  className="formvalue"
-                  value={myValue1}
-                  onChange={handleChange}
-                  id={location + "subform1"}
-                  label=""
-                  InputProps={{ disableUnderline: true }}
-                />
-              </form>
-            }
-          </div>
-          ,
-          <div class="form-control">
-            {
-              <form>
-                <TextField
-                  style={{
-                    textAlign: "center",
-                  }}
-                  className="formvalue"
-                  value={myValue2}
-                  onChange={handleChange2}
-                  id={location + "subform2"}
-                  label=""
-                  InputProps={{ disableUnderline: true }}
-                />
-              </form>
-            }
-          </div>
-          <div>)</div>
-        </CardActions>
+        <CardContent style={{ backgroundColor: color }}>
+          <CardActions>
+            <div>(</div>
+            <div class="form-control">
+              {
+                <form>
+                  <TextField
+                    type="number"
+                    className="formvalue"
+                    value={myValue1}
+                    onChange={handleChange}
+                    id={location + "subform1"}
+                    label=""
+                    InputProps={{ disableUnderline: true }}
+                  />
+                </form>
+              }
+            </div>
+            ,
+            <div class="form-control">
+              {
+                <form>
+                  <TextField
+                    type="number"
+                    style={{
+                      textAlign: "center",
+                    }}
+                    className="formvalue"
+                    value={myValue2}
+                    onChange={handleChange2}
+                    id={location + "subform2"}
+                    label=""
+                    InputProps={{ disableUnderline: true }}
+                  />
+                </form>
+              }
+            </div>
+            <div>)</div>
+          </CardActions>
+        </CardContent>
       </Card>
     </div>
   );

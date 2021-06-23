@@ -15,14 +15,20 @@ function App() {
 
   const [eqresponse, setEqResponse] = useState(null);
 
+  const [highlightedeqs, setHighlightedEqs] = useState(null);
+
   const trigger = useRecoilState(triggered);
 
   const axios = require("axios");
 
   function displayeqs(data) {
-    //console.log(data);
-    if (data != null) {
-      var display_array_prediv = data.split("],");
+    if (data !== null) {
+      //removing content from api for human readable output
+      var firstelemslist = data.split("{");
+      var firstelemsstring = firstelemslist[0].toString();
+
+      var display_array_prediv = firstelemsstring.split("],");
+      //console.log(display_array_prediv);
       var display_array_postdiv = [];
       display_array_prediv.forEach((element) =>
         display_array_postdiv.push(
@@ -36,6 +42,19 @@ function App() {
       );
     }
     return display_array_postdiv;
+  }
+
+  function generateHighlightedEqs(data) {
+    if (data != null) {
+      //removing content from api for human readable output
+      var firstelemslist = data.split("{");
+      var firstelemsstring = firstelemslist[1].toString();
+      //passing formatted output dictionary to useState hook for use
+      //in highlighting equilibria
+      var highlightedeqtostate = "{" + firstelemsstring;
+      highlightedeqtostate = highlightedeqtostate.slice(0, -1);
+    }
+    return highlightedeqtostate;
   }
 
   useEffect(() => {
@@ -54,6 +73,7 @@ function App() {
         });
       }
     }
+
     //console.log(JSON.stringify(matrixdict));
     axios({
       method: "POST",
@@ -61,10 +81,12 @@ function App() {
       data: { matrixdict },
     })
       .then(function (response) {
+        //these could be made into a shorter pair of functions
         setEqResponse(response.data);
+        setHighlightedEqs(generateHighlightedEqs(response.data));
       })
       .catch(function (error) {
-        console.log(error);
+        //console.log(error);
         setEqResponse("Please complete the payoff matrix");
       });
   }, [trigger]);
@@ -88,24 +110,55 @@ function App() {
     }
   }, [rows, cols]);
 
-  console.log(String(minusColsState));
-  console.log(String(minusRowsState));
   return (
     <div className="App">
       <div>
         <Header2 />
       </div>
-      <Grid rows={rows} cols={cols} />
+      <br></br>
+      <Grid rows={rows} cols={cols} highlightedeqs={highlightedeqs} />
+      <br></br>
       <div>
-        <div>
-          <Button onClick={() => setRows(rows + minusRowsState)}>-rows</Button>
-          <Button onClick={() => setRows(rows + 1)}>+rows</Button>
+        <div className="rowStyle">
+          <h2>Rows: </h2>
+          &nbsp;
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => setRows(rows + minusRowsState)}
+          >
+            -
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setRows(rows + 1)}
+          >
+            +
+          </Button>
         </div>
-        <div>
-          <Button onClick={() => setCols(cols + minusColsState)}>-cols</Button>
-          <Button onClick={() => setCols(cols + 1)}>+cols</Button>
+        <div className="rowStyle">
+          <h2>Cols:</h2>
+          &nbsp;
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => setCols(cols + minusColsState)}
+          >
+            -
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setCols(cols + 1)}
+          >
+            +
+          </Button>
         </div>
-        <div>{displayeqs(eqresponse)}</div>
+        <br></br>
+        <div>
+          <h2>{displayeqs(eqresponse)}</h2>
+        </div>
       </div>
     </div>
   );

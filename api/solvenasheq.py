@@ -77,6 +77,13 @@ def solvefornasheq(testdict):
                 elif lst.index(elem) == 1:
                     print("Player 2")"""
 
+    interpretationoflists = {}
+    for i in range(len(new_eqs)):
+        tempeqlist = []
+        for j in range(len(new_eqs[i])):
+            tempeqlist.append(new_eqs[i][j].tolist())
+        interpretationoflists[i+1]=tempeqlist
+
     full_interpretation = []
     for inter in interpretation:
         for i in range(len(interpretation[inter])):
@@ -93,6 +100,8 @@ def solvefornasheq(testdict):
                 else:
                     message = "Player " + str(player) + " plays strategy " + str(indices[i]+1) + " with probability " + str(probabilities[i])
                 full_interpretation.append([inter,message])
-    #print(interpretation)
+
+    full_interpretation.append(interpretationoflists)
+    
     return full_interpretation
-#print(solvefornasheq(testdictsingleeq))
+print(solvefornasheq(testdictmorerows))
