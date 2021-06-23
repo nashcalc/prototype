@@ -14,6 +14,10 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
   
   **Ben:**  
   
+  
+    Highlight or color the form if it's a nash eq in pure or highlight the others on a gradient of color depending on probability in mixed strategies (can pass a state down to the form)
+    -- unfortunately APP.js sends string to grid and needs to send array ): 
+  
     Eliminate axios api calls anytime that form values are not complete and numbers/floats and move error handling from axios to when call condition is met/unmet
     as opposed to just error handling 
     
@@ -23,7 +27,6 @@ atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
     
     Try and combine all nasheqs into a single statement 
   
-    Highlight or color the form if it's a nash eq in pure or highlight the others on a gradient of color depending on probability in mixed strategies (can pass a state down to the form)
   
     Center input in textfields
   
