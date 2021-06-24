@@ -32,10 +32,10 @@ export default function SimpleCard({ location, highlighted }) {
 
   console.log(highlighted + location);
 
-  if (highlighted == true) {
-    var color = "blue";
+  if (highlighted === true) {
+    var highlightcolor = "blue";
   } else {
-    var color = "white";
+    highlightcolor = "white";
   }
 
   const [trigger, changeTrigger] = useRecoilState(triggered);
@@ -56,7 +56,7 @@ export default function SimpleCard({ location, highlighted }) {
   return (
     <div>
       <Card className={classes.root}>
-        <CardContent style={{ backgroundColor: color }}>
+        <CardContent style={{ backgroundColor: highlightcolor }}>
           <CardActions>
             <div>(</div>
             <div class="form-control">
@@ -80,9 +80,6 @@ export default function SimpleCard({ location, highlighted }) {
                 <form>
                   <TextField
                     type="number"
-                    style={{
-                      textAlign: "center",
-                    }}
                     className="formvalue"
                     value={myValue2}
                     onChange={handleChange2}

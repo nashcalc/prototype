@@ -68,15 +68,6 @@ def solvefornasheq(testdict):
     for i in range(len(new_eqs)):
         interpretation["Nash Eq "+str(i+1)]= new_eqs[i]
 
-    """interpretation_by_player = {}
-    for k,v in interpretation.items():
-        lst = [list(x) for x in v]
-        for elem in lst:
-                if lst.index(elem) == 0:
-                    print("Player 1")
-                elif lst.index(elem) == 1:
-                    print("Player 2")"""
-
     interpretationoflists = {}
     for i in range(len(new_eqs)):
         tempeqlist = []
@@ -102,6 +93,6 @@ def solvefornasheq(testdict):
                 full_interpretation.append([inter,message])
 
     full_interpretation.append(interpretationoflists)
-    
+
     return full_interpretation
-print(solvefornasheq(testdictmorerows))
+#print(solvefornasheq(testdictmorerows))
