@@ -22,20 +22,19 @@ const useStyles = makeStyles((theme) => ({
   pos: {
     marginBottom: 10,
   },
-  redCard: {
-    backgroundColor: red[300],
-  },
 }));
 
 export default function SimpleCard({ location, highlighted }) {
   const classes = useStyles();
 
-  console.log(highlighted + location);
+  //console.log(highlighted + location);
 
-  if (highlighted == true) {
-    var color = "blue";
+  if (String(highlighted) === String(location)) {
+    var color = "limegreen";
+    var textcolor = "white";
   } else {
-    var color = "white";
+    color = "white";
+    textcolor = "black";
   }
 
   const [trigger, changeTrigger] = useRecoilState(triggered);
@@ -56,7 +55,7 @@ export default function SimpleCard({ location, highlighted }) {
   return (
     <div>
       <Card className={classes.root}>
-        <CardContent style={{ backgroundColor: color }}>
+        <CardContent style={{ backgroundColor: color, color: textcolor }}>
           <CardActions>
             <div>(</div>
             <div class="form-control">

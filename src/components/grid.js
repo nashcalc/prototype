@@ -102,13 +102,14 @@ export default function SpacingGrid({ rows, cols, highlightedeqs }) {
   const classes = useStyles();
 
   function sendHighlightsToForm(i, value) {
+    var highlightedlocations = [];
     for (var arr in highlights) {
-      if (highlights[arr][0] == i && highlights[arr][1] == value) {
-        return true;
-      } else {
-        return false;
+      console.log("noice");
+      if (highlights[arr][0] === i && highlights[arr][1] === value) {
+        highlightedlocations.push("row" + String(i) + "col" + String(value));
       }
     }
+    return highlightedlocations;
   }
 
   var colMap = Array.from(Array(cols).keys());
