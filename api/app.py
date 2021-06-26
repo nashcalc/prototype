@@ -6,7 +6,7 @@ from solvenasheq import solvefornasheq
 app = Flask(__name__, static_folder="../build", static_url_path="")
 CORS(app)
 
-@app.route('/test', methods=['POST'])
+@app.route('https://nash-calc.herokuapp.com/test', methods=['POST'])
 def postTest():
     data = request.get_json()
     solvedeqs = solvefornasheq(data)
