@@ -77,7 +77,7 @@ function App() {
     //console.log(JSON.stringify(matrixdict));
     axios({
       method: "POST",
-      url: "/test",
+      url: "https://nash-calc.herokuapp.com/test",
       data: { matrixdict },
     })
       .then(function (response) {

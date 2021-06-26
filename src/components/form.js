@@ -29,19 +29,17 @@ export default function SimpleCard({ location, highlighted }) {
 
   //console.log(highlighted + location);
 
-<<<<<<< HEAD
   if (String(highlighted) === String(location)) {
     var color = "limegreen";
     var textcolor = "white";
   } else {
     color = "white";
     textcolor = "black";
-=======
-  if (highlighted === true) {
-    var highlightcolor = "blue";
-  } else {
-    highlightcolor = "white";
->>>>>>> f33ab2b8600c3fc7cb1e18c4b4cf72406cb1d478
+    if (highlighted === true) {
+      var highlightcolor = "blue";
+    } else {
+      highlightcolor = "white";
+    }
   }
 
   const [trigger, changeTrigger] = useRecoilState(triggered);
@@ -62,11 +60,7 @@ export default function SimpleCard({ location, highlighted }) {
   return (
     <div>
       <Card className={classes.root}>
-<<<<<<< HEAD
         <CardContent style={{ backgroundColor: color, color: textcolor }}>
-=======
-        <CardContent style={{ backgroundColor: highlightcolor }}>
->>>>>>> f33ab2b8600c3fc7cb1e18c4b4cf72406cb1d478
           <CardActions>
             <div>(</div>
             <div class="form-control">
