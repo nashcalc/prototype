@@ -1,5 +1,6 @@
 import "./App.css";
 import Grid from "./components/grid.js";
+import { GridMap } from "./components/gridmap.js";
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import { triggered } from "./atomy.js";

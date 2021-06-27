@@ -118,18 +118,22 @@ export default function SpacingGrid({ rows, cols, highlightedeqs }) {
   for (var i = 0; i < rows; i++) {
     gridContainer.push(
       <div>
-        <Grid container className={classes.root} spacing={1} id={"row" + i}>
-          <Grid item xs={12}>
-            <Grid container justify="center">
-              {colMap.map((value) => (
-                <Grid key={value} id={"row" + i + "col" + value} item>
-                  <Form
-                    location={"row" + i + "col" + value}
-                    highlighted={sendHighlightsToForm(i, value)}
-                  />
-                </Grid>
-              ))}
-            </Grid>
+        <Grid
+          container
+          wrap="nowrap"
+          className={classes.root}
+          spacing={1}
+          id={"row" + i}
+        >
+          <Grid container justify="center" wrap="nowrap">
+            {colMap.map((value) => (
+              <Grid key={value} id={"row" + i + "col" + value} item>
+                <Form
+                  location={"row" + i + "col" + value}
+                  highlighted={sendHighlightsToForm(i, value)}
+                />
+              </Grid>
+            ))}
           </Grid>
         </Grid>
       </div>
