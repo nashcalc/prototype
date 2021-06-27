@@ -3,8 +3,12 @@ from flask import request
 from flask_cors import CORS
 from solvenasheq import solvefornasheq
 
-app = Flask(__name__, static_folder="../build", static_url_path="")
+app = Flask(__name__, static_folder="../build", static_url_path="/")
 CORS(app)
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @app.route('/test', methods=['POST'])
 def postTest():
