@@ -13,7 +13,6 @@ def index():
 @app.route('/test', methods=['POST'])
 def postTest():
     data = request.get_json()
-    print(data)
     solvedeqs = solvefornasheq(data)
     return str(solvedeqs)
 
