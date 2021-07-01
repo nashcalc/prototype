@@ -16,5 +16,10 @@ def postTest():
     solvedeqs = solvefornasheq(data)
     return str(solvedeqs)
 
+@app.route('/bruh')
+def bruh():
+    print("bruh")
+    return ("bruh")
+
 if __name__ == "__main__":
     app.run(debug = True, host="0.0.0.0", port=5000)
