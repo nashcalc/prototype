@@ -75,10 +75,11 @@ function App() {
       }
     }
 
+    console.log(matrixdict)
     //console.log(JSON.stringify(matrixdict));
     axios({
       method: "POST",
-      url: "https://nash-calc.herokuapp.com/test",
+      url: "http://localhost:3000/test",
       data: { matrixdict },
     })
       .then(function (response) {
