@@ -79,7 +79,7 @@ function App() {
     //console.log(JSON.stringify(matrixdict));
     axios({
       method: "POST",
-      url: "/test",
+      url: "nashcalc.com/test",
       data: { matrixdict },
     })
       .then(function (response) {
