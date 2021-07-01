@@ -79,7 +79,7 @@ function App() {
     //console.log(JSON.stringify(matrixdict));
     axios({
       method: "POST",
-      url: "http://localhost:3000/test",
+      url: "/test",
       data: { matrixdict },
     })
       .then(function (response) {
