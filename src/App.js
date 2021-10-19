@@ -23,29 +23,28 @@ function App() {
   const axios = require("axios");
 
   function displayeqs(data) {
-    if (data !== null) {
-      //removing content from api for human readable output
-      var firstelemslist = data.split("{");
-      var firstelemsstring = firstelemslist[0].toString();
-
-      var display_array_prediv = firstelemsstring.split("],");
-      //console.log(display_array_prediv);
-      var display_array_postdiv = [];
-      display_array_prediv.forEach((element) =>
-        display_array_postdiv.push(
-          <div>
-            {element
-              .replaceAll("[", "")
-              .replaceAll("'", "")
-              .replaceAll("]", "")}
-          </div>
-        )
-      );
+    if (data == "Please complete the payoff matrix") {
+      return "Please complete the payoff matrix"
+    }else if (data != "Please complete the payoff matrix" && typeof data == String){
+      return data
+    }else{
+      //console.log(JSON.parse(data))
+      var display_array_divs = []
+      var parsed_data_array = JSON.parse(data)
+      if (parsed_data_array != null){
+        for (var i = 0; i < parsed_data_array.length; i++){
+          display_array_divs.push(<div>{parsed_data_array[i]}</div>)
+        }
+        return display_array_divs
+      }else{
+        return "Please complete the payoff matrix"
+        }
+      }
     }
-    return display_array_postdiv;
-  }
 
-  function generateHighlightedEqs(data) {
+  function requestCalculatedEqs(){}
+
+  function generateHighlightedEqs(data){
     if (data != null) {
       //removing content from api for human readable output
       var firstelemslist = data.split("{");
@@ -57,6 +56,8 @@ function App() {
     }
     return highlightedeqtostate;
   }
+
+  var modifiedDataArray = []
 
   useEffect(() => {
     var values = document.getElementsByClassName(
@@ -74,8 +75,7 @@ function App() {
         });
       }
     }
-
-    console.log(matrixdict)
+    //dictionary values instead of string parsing
     //console.log(JSON.stringify(matrixdict));
     axios({
       method: "POST",
@@ -84,12 +84,17 @@ function App() {
     })
       .then(function (response) {
         //these could be made into a shorter pair of functions
-        setEqResponse(response.data);
-        setHighlightedEqs(generateHighlightedEqs(response.data));
+
+        for (var i = 0; i < response.data.length - 1; i++){
+          //console.log(response.data[i])
+          modifiedDataArray.push(response.data[i])
+      }
+        setEqResponse(JSON.stringify(modifiedDataArray))
+        //setEqResponse(modifiedDataArray)
+        //setEqResponse("Success")
       })
       .catch(function (error) {
-        //console.log(error);
-        setEqResponse("Please complete the payoff matrix");
+        setEqResponse("Please complete the payoff matrix")
       });
   }, [trigger]);
 

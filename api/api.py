@@ -14,7 +14,7 @@ def index():
 def postTest():
     data = request.get_json()
     solvedeqs = solvefornasheq(data)
-    return str(solvedeqs)
+    return jsonify(solvedeqs)
 
 @app.route('/bruh')
 def bruh():
