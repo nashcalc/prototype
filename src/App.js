@@ -68,6 +68,10 @@ function App() {
     //new character is added or removed in any form
 
     var matrixdict = [];
+
+    //counter to determine if axios post condition is met
+    var count_to_check_for_full_matrixdict = 0;
+
     for (var i = 0; i < values.length; i++) {
       var id_to_index = values[i].id
       var end_of_row = id_to_index.indexOf("w")
@@ -78,36 +82,43 @@ function App() {
       var row_from_string = values[i].id.slice(end_of_row+1,beginning_of_col)
       var col_from_string = values[i].id.slice(end_of_col+1,beginning_of_subform)
       var subform_from_string = values[i].id.slice(end_of_subform+1)
-      if (values[i].value != null) {
+
+      if (values[i].value != null && values[i].value != "") {
         matrixdict.push({
           row: row_from_string,
           col: col_from_string,
           subform: subform_from_string,
           value: values[i].value,
         });
+      }else{
+        count_to_check_for_full_matrixdict+=1;
       }
+
     }
     //dictionary values instead of string parsing
     console.log(matrixdict);
-    axios({
-      method: "POST",
-      url: "/test",
-      data: { matrixdict },
-    })
-      .then(function (response) {
-        //these could be made into a shorter pair of functions
 
-        for (var i = 0; i < response.data.length - 1; i++){
-          //console.log(response.data[i])
-          modifiedDataArray.push(response.data[i])
-      }
-        setEqResponse(JSON.stringify(modifiedDataArray))
-        //setEqResponse(modifiedDataArray)
-        //setEqResponse("Success")
+    if (count_to_check_for_full_matrixdict === 0){
+      axios({
+        method: "POST",
+        url: "/test",
+        data: { matrixdict },
       })
-      .catch(function (error) {
-        setEqResponse("Please complete the payoff matrix")
-      });
+        .then(function (response) {
+          //these could be made into a shorter pair of functions
+
+          for (var i = 0; i < response.data.length - 1; i++){
+            //console.log(response.data[i])
+            modifiedDataArray.push(response.data[i])
+        }
+          setEqResponse(JSON.stringify(modifiedDataArray))
+          //setEqResponse(modifiedDataArray)
+          //setEqResponse("Success")
+        })
+        .catch(function (error) {
+          setEqResponse("Please complete the payoff matrix")
+        });
+    }
   }, [trigger]);
 
   const [minusRowsState, setMinusRowsState] = useState(-1);
