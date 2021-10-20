@@ -135,5 +135,15 @@ export default function SpacingGrid({ rows, cols, highlightedeqs }) {
     );
   }
 
-  return gridContainer;
+  return (
+    <div>
+      <div>Player 2</div>
+
+      <br></br>
+      {gridContainer}
+      <div className="player1">
+        Player 1
+      </div>
+    </div>
+  );
 }

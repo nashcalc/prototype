@@ -144,7 +144,9 @@ function App() {
         <Header2 />
       </div>
       <br></br>
-      <Grid rows={rows} cols={cols} highlightedeqs={highlightedeqs} />
+      <div>
+        <Grid rows={rows} cols={cols} highlightedeqs={highlightedeqs} />
+      </div>
       <br></br>
       <div>
         <div className="rowStyle">
@@ -188,7 +190,6 @@ function App() {
           <h2>{displayeqs(eqresponse)}</h2>
         </div>
       </div>
-      Noice
     </div>
   );
 }
