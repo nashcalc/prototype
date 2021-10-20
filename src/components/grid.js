@@ -123,7 +123,8 @@ export default function SpacingGrid({ rows, cols, highlightedeqs }) {
             {colMap.map((value) => (
               <Grid key={value} id={"row" + i + "col" + value} item>
                 <Form
-                  location={"row" + i + "col" + value}
+                  row={i}
+                  col={value}
                   highlighted={sendHighlightsToForm(i, value)}
                 />
               </Grid>

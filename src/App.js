@@ -66,17 +66,29 @@ function App() {
     //this is where we send post to api instead of console log
     //we've managed to make [trigger] in recoil atom update every time a
     //new character is added or removed in any form
+
     var matrixdict = [];
-    for (var i in values) {
-      if (values[i].id != null && values[i].value != null) {
+    for (var i = 0; i < values.length; i++) {
+      var id_to_index = values[i].id
+      var end_of_row = id_to_index.indexOf("w")
+      var beginning_of_col = id_to_index.indexOf("c")
+      var end_of_col = id_to_index.indexOf("l")
+      var beginning_of_subform = id_to_index.indexOf("s")
+      var end_of_subform = id_to_index.indexOf("m")
+      var row_from_string = values[i].id.slice(end_of_row+1,beginning_of_col)
+      var col_from_string = values[i].id.slice(end_of_col+1,beginning_of_subform)
+      var subform_from_string = values[i].id.slice(end_of_subform+1)
+      if (values[i].value != null) {
         matrixdict.push({
-          location: values[i].id,
+          row: row_from_string,
+          col: col_from_string,
+          subform: subform_from_string,
           value: values[i].value,
         });
       }
     }
     //dictionary values instead of string parsing
-    //console.log(JSON.stringify(matrixdict));
+    console.log(matrixdict);
     axios({
       method: "POST",
       url: "/test",

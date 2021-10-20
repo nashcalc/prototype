@@ -24,11 +24,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleCard({ location, highlighted }) {
+export default function SimpleCard({ row, col, highlighted }) {
   const classes = useStyles();
 
   //console.log(highlighted + location);
-
+/*
   if (String(highlighted) === String(location)) {
     var color = "limegreen";
     var textcolor = "white";
@@ -41,6 +41,10 @@ export default function SimpleCard({ location, highlighted }) {
       highlightcolor = "white";
     }
   }
+*/
+
+  var color = "white";
+  var textcolor = "black";
 
   const [trigger, changeTrigger] = useRecoilState(triggered);
 
@@ -71,7 +75,9 @@ export default function SimpleCard({ location, highlighted }) {
                     className="formvalue"
                     value={myValue1}
                     onChange={handleChange}
-                    id={location + "subform1"}
+                    id={"row" + (row + 1) + "col" + (col + 1) + "subform1"}
+                    row={row}
+                    col={col}
                     label=""
                     InputProps={{ disableUnderline: true }}
                   />
@@ -87,7 +93,9 @@ export default function SimpleCard({ location, highlighted }) {
                     className="formvalue"
                     value={myValue2}
                     onChange={handleChange2}
-                    id={location + "subform2"}
+                    id={"row" + row + "col" + col + "subform2"}
+                    row={row}
+                    col={col}
                     label=""
                     InputProps={{ disableUnderline: true }}
                   />

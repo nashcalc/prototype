@@ -31,7 +31,10 @@ def solvefornasheq(testdict):
             player2.append(element)
 
     payoffs1 = []
-    """assuming equal length payoffs which will be enforced before axios post"""
+    """assuming equal length payoffs which will be enforced before axios post
+
+    ^what does this mean?
+    """
     for i in range(len(player1)):
         payoffs1.append(float(player1[i]["value"]))
 
