@@ -93,7 +93,7 @@ export default function SimpleCard({ row, col, highlighted }) {
                     className="formvalue"
                     value={myValue2}
                     onChange={handleChange2}
-                    id={"row" + row + "col" + col + "subform2"}
+                    id={"row" + (row + 1) + "col" + (col + 1) + "subform2"}
                     row={row}
                     col={col}
                     label=""

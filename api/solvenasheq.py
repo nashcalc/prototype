@@ -1,57 +1,45 @@
 import nashpy as nash
 import numpy as np
 
-testdictsingleeq = {"matrixdict":[{"location":"row0col0subform1","value":"8"},{"location":"row0col0subform2","value":"7"},{"location":"row0col1subform1","value":"6"},{"location":"row0col1subform2","value":"5"},{"location":"row1col0subform1","value":"4"},{"location":"row1col0subform2","value":"3"},{"location":"row1col1subform1","value":"2"},{"location":"row1col1subform2","value":"1"}]}
-testdictmultipleeq = {"matrixdict":[{"location":"row0col0subform1","value":"8"},{"location":"row0col0subform2","value":"5"},{"location":"row0col1subform1","value":"6"},{"location":"row0col1subform2","value":"3"},{"location":"row1col0subform1","value":"2"},{"location":"row1col0subform2","value":"3"},{"location":"row1col1subform1","value":"8"},{"location":"row1col1subform2","value":"4"}]}
+def solvefornasheq(matrixdict):
+    #print(matrixdict["matrixdict"])
+    matrixdict = matrixdict["matrixdict"]
+    p1_payoffs = []
+    p2_payoffs = []
 
-testdictmorerows = {"matrixdict":[{"location":"row0col0subform1","value":"8"},{"location":"row0col0subform2","value":"5"},{"location":"row0col1subform1","value":"6"},{"location":"row0col1subform2","value":"3"},{"location":"row1col0subform1","value":"2"},{"location":"row1col0subform2","value":"3"},{"location":"row1col1subform1","value":"8"},{"location":"row1col1subform2","value":"4"},{"location":"row2col0subform1","value":"2"},{"location":"row2col0subform2","value":"5"},{"location":"row2col1subform1","value":"7"},{"location":"row2col1subform2","value":"8"}]}
+    for i in range(len(matrixdict)):
+        if int(matrixdict[i]["player"]) == 1:
+            p1_payoffs.append(matrixdict[i])
+        elif int(matrixdict[i]["player"]) == 2:
+            p2_payoffs.append(matrixdict[i])
 
-testdictmorecols = {"matrixdict": [{"location":"row0col0subform1","value":"8"},{"location":"row0col0subform2","value":"5"},{"location":"row0col1subform1","value":"6"},{"location":"row0col1subform2","value":"3"},{"location":"row0col2subform1","value":"7"},{"location":"row0col2subform2","value":"4"},{"location":"row1col0subform1","value":"2"},{"location":"row1col0subform2","value":"3"},{"location":"row1col1subform1","value":"8"},{"location":"row1col1subform2","value":"4"},{"location":"row1col2subform1","value":"2"},{"location":"row1col2subform2","value":"6"}]}
+    p1_payoffs_to_row = []
+    p2_payoffs_to_row = []
 
-testdictallmixed = {"matrixdict":[{"location":"row0col0subform1","value":"2"},{"location":"row0col0subform2","value":"1"},{"location":"row0col1subform1","value":"1"},{"location":"row0col1subform2","value":"2"},{"location":"row1col0subform1","value":"1"},{"location":"row1col0subform2","value":"2"},{"location":"row1col1subform1","value":"2"},{"location":"row1col1subform2","value":"1"}]}
+    types_of_rows = []
 
-def solvefornasheq(testdict):
-    for element in testdict["matrixdict"]:
-        splitter = element["location"]
-        element["row"] = splitter.split("c")[0]
+    for i in range(len(p1_payoffs)):
+        if int(p1_payoffs[i]["row"]) not in types_of_rows:
+            types_of_rows.append(int(p1_payoffs[i]["row"]))
 
-    rows = []
-    for element in testdict["matrixdict"]:
-        if element["row"] not in rows:
-            rows.append(element["row"])
+    for type in types_of_rows:
+        row_templist1 = []
+        for i in range(len(p1_payoffs)):
+            if int(p1_payoffs[i]["row"]) == type:
+                row_templist1.append(int(p1_payoffs[i]["value"]))
+        p1_payoffs_to_row.append(row_templist1)
 
-    player1 = []
-    player2 = []
+    for type in types_of_rows:
+        row_templist2 = []
+        for i in range(len(p2_payoffs)):
+            if int(p2_payoffs[i]["row"]) == type:
+                row_templist2.append(int(p2_payoffs[i]["value"]))
+        p2_payoffs_to_row.append(row_templist2)
 
-    for element in testdict["matrixdict"]:
-        if "subform1" in element["location"]:
-            player1.append(element)
-    for element in testdict["matrixdict"]:
-        if "subform2" in element["location"]:
-            player2.append(element)
+    p1 = np.array(p1_payoffs_to_row)
+    p2 = np.array(p2_payoffs_to_row)
 
-    payoffs1 = []
-    """assuming equal length payoffs which will be enforced before axios post
-
-    ^what does this mean?
-    """
-    for i in range(len(player1)):
-        payoffs1.append(float(player1[i]["value"]))
-
-    numsplits1 = len(payoffs1)/len(rows)
-    split1 = np.array_split(payoffs1,numsplits1)
-
-    payoffs2 = []
-    for i in range(len(player2)):
-        payoffs2.append(float(player2[i]["value"]))
-
-    numsplits2 = len(payoffs2)/len(rows)
-    split2 = np.array_split(payoffs2,numsplits2)
-
-    A = split1
-    B = split2
-
-    game_to_solve = nash.Game(A,B)
+    game_to_solve = nash.Game(p1,p2)
 
     equilibria = game_to_solve.vertex_enumeration()
 
@@ -69,7 +57,7 @@ def solvefornasheq(testdict):
 
     interpretation = {}
     for i in range(len(new_eqs)):
-        interpretation["Nash Eq "+str(i+1)]= new_eqs[i]
+        interpretation["Nash Eq "+str(i+1) + ": "]= new_eqs[i]
 
     interpretationoflists = {}
     for i in range(len(new_eqs)):
@@ -98,4 +86,3 @@ def solvefornasheq(testdict):
     full_interpretation.append(interpretationoflists)
 
     return full_interpretation
-#print(solvefornasheq(testdictmorerows))

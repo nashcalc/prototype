@@ -1,11 +1,11 @@
 import "./App.css";
 import Grid from "./components/grid.js";
-import { GridMap } from "./components/gridmap.js";
+//import { GridMap } from "./components/gridmap.js";
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import { triggered } from "./atomy.js";
 import { useRecoilState } from "recoil";
-import axios from "axios";
+//import axios from "axios";
 import Header2 from "./components/Header2.js";
 
 /* eslint-disable no-unused-expressions */
@@ -23,12 +23,11 @@ function App() {
   const axios = require("axios");
 
   function displayeqs(data) {
-    if (data == "Please complete the payoff matrix") {
+    if (data === "Please complete the payoff matrix") {
       return "Please complete the payoff matrix"
-    }else if (data != "Please complete the payoff matrix" && typeof data == String){
+    }else if (data !== "Please complete the payoff matrix" && typeof data == String){
       return data
     }else{
-      //console.log(JSON.parse(data))
       var display_array_divs = []
       var parsed_data_array = JSON.parse(data)
       if (parsed_data_array != null){
@@ -87,7 +86,7 @@ function App() {
         matrixdict.push({
           row: row_from_string,
           col: col_from_string,
-          subform: subform_from_string,
+          player: subform_from_string,
           value: values[i].value,
         });
       }else{
@@ -96,7 +95,7 @@ function App() {
 
     }
     //dictionary values instead of string parsing
-    console.log(matrixdict);
+    //console.log(matrixdict);
 
     if (count_to_check_for_full_matrixdict === 0){
       axios({
@@ -106,7 +105,6 @@ function App() {
       })
         .then(function (response) {
           //these could be made into a shorter pair of functions
-
           for (var i = 0; i < response.data.length - 1; i++){
             //console.log(response.data[i])
             modifiedDataArray.push(response.data[i])
