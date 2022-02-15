@@ -1,12 +1,5 @@
 **Welcome to the NashCalc Prototype** 
 
-**Let's Fix Shit Up!**
-
-**Teletype**
-atom://teletype/portal/e97d3888-5fd0-41db-a481-1306b773d513
-
-**Basically name your commit whatever the task name is and update the README, removing it from your assignments** 
-
 **Resources:**
   https://docs.google.com/document/d/1koHvLZkfmVZ1JqvQaXxrCAGBeWYqXPgocr3aKMm2IfA/edit
 
