@@ -1,4 +1,4 @@
-**Welcome to the NashCalc Prototype** 
+**Welcome to the NashCalc Game Theory Calculator Prototype** 
 
 **Resources:**
   https://docs.google.com/document/d/1koHvLZkfmVZ1JqvQaXxrCAGBeWYqXPgocr3aKMm2IfA/edit
