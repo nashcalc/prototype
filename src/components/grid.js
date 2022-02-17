@@ -18,12 +18,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SpacingGrid({ rows, cols, highlightedeqs }) {
-  const [highlights, setHighlights] = useState(null);
+  //const [highlights, setHighlights] = useState(null);
 
+/*
   useEffect(() => {
     setHighlights(converttohighlights(highlightedeqs));
   }, [highlightedeqs]);
-
+*/
   //console.log(highlights);
 
   function arraychunk(arr, len) {
@@ -35,7 +36,7 @@ export default function SpacingGrid({ rows, cols, highlightedeqs }) {
     }
     return chunks;
   }
-
+/*
   function converttohighlights(highlightedeqs) {
     if (highlightedeqs !== null) {
       var highlightstolist1 = highlightedeqs.split("],");
@@ -99,7 +100,7 @@ export default function SpacingGrid({ rows, cols, highlightedeqs }) {
     return highlightstolist7;
   }
 
-  const classes = useStyles();
+
 
   function sendHighlightsToForm(i, value) {
     var highlightedlocations = [];
@@ -111,7 +112,8 @@ export default function SpacingGrid({ rows, cols, highlightedeqs }) {
     }
     return highlightedlocations;
   }
-
+*/
+  const classes = useStyles();
   var colMap = Array.from(Array(cols).keys());
 
   var gridContainer = [];
@@ -125,7 +127,6 @@ export default function SpacingGrid({ rows, cols, highlightedeqs }) {
                 <Form
                   row={i}
                   col={value}
-                  highlighted={sendHighlightsToForm(i, value)}
                 />
               </Grid>
             ))}
@@ -137,13 +138,7 @@ export default function SpacingGrid({ rows, cols, highlightedeqs }) {
 
   return (
     <div>
-      <div>Player 2</div>
-
-      <br></br>
       {gridContainer}
-      <div className="player1">
-        Player 1
-      </div>
     </div>
   );
 }
