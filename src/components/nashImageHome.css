@@ -1,7 +1,6 @@
 
 .img {
-position: fixed;
-image-resolution: 100;
+position: absolute;
 top: 0em;
 float: left;
 padding-left: 3px;

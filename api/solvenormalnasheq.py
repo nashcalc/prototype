@@ -1,8 +1,7 @@
 import nashpy as nash
 import numpy as np
 
-def solvefornasheq(matrixdict):
-    #print(matrixdict["matrixdict"])
+def solvefornormalnasheq(matrixdict):
     matrixdict = matrixdict["matrixdict"]
     p1_payoffs = []
     p2_payoffs = []

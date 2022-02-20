@@ -42,18 +42,34 @@ export default function TwoPlayerNormalNash({}) {
 
   function requestCalculatedEqs(){}
 
-  function generateHighlightedEqs(data){
+  function generatePureHighlightedEqs(data){
     if (data != null) {
-      //removing content from api for human readable output
-      var firstelemslist = data.split("{");
-      var firstelemsstring = firstelemslist[1].toString();
-      //passing formatted output dictionary to useState hook for use
-      //in highlighting equilibria
-      var highlightedeqtostate = "{" + firstelemsstring;
-      highlightedeqtostate = highlightedeqtostate.slice(0, -1);
+      var withoutProbsArray = []
+      for (let i = 0; i<data.length; i++){
+        if (data[i][1].includes("prob")==false){
+          withoutProbsArray.push(data[i])
+        }
+      }
+      var withoutMixedArray = []
+      for (let i = 0; i<withoutProbsArray.length; i++){
+        var countEqInstances = 0
+        for (let j = 0; j<withoutProbsArray.length; j++){
+          if (withoutProbsArray[i][0] == withoutProbsArray[j][0]){
+            countEqInstances += 1
+          }
+        }
+        if (countEqInstances == 2){
+          withoutMixedArray.push(withoutProbsArray[i])
+        }
+      }
+      var pureHighlightedEqsArray = []
+      for (let i = 0; i<withoutMixedArray.length-1; i+=2){
+        pureHighlightedEqsArray.push([withoutMixedArray[i][1].slice(24),withoutMixedArray[i+1][1].slice(24)])
+      }
     }
-    return highlightedeqtostate;
-  }
+    return pureHighlightedEqsArray;
+}
+
 
   var modifiedDataArray = []
 
@@ -108,6 +124,7 @@ export default function TwoPlayerNormalNash({}) {
             //console.log(response.data[i])
             modifiedDataArray.push(response.data[i])
         }
+          setHighlightedEqs(generatePureHighlightedEqs(modifiedDataArray))
           setEqResponse(JSON.stringify(modifiedDataArray))
           //setEqResponse(modifiedDataArray)
           //setEqResponse("Success")
@@ -140,7 +157,7 @@ export default function TwoPlayerNormalNash({}) {
   return (
     <div className="twoplayernash">
       <div className = "gridStyle">
-        <Grid rows={rows} cols={cols}/>
+        <Grid rows={rows} cols={cols} highlightedeqs={highlightedeqs}/>
       </div>
       <br></br>
       <div>

@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     },
     minWidth: 40,
   },
+  input: {
+    color: "#FFF",
+  },
   title: {
     fontSize: 11,
   },
@@ -24,27 +27,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleCard({ row, col, highlighted }) {
+export default function SimpleCard({ row, col, highlightedeqs }) {
   const classes = useStyles();
 
-  //console.log(highlighted + location);
-/*
-  if (String(highlighted) === String(location)) {
+  row = row + 1
+  col = col + 1
+
+  var highlighted = false
+
+  if (highlightedeqs != null){
+    for (let i=0; i<highlightedeqs.length; i++){
+      if (parseInt(highlightedeqs[i][0]) == row && parseInt(highlightedeqs[i][1]) == col){
+        highlighted = true
+    }
+  }
+}
+
+  if (highlighted === true) {
     var color = "limegreen";
     var textcolor = "white";
   } else {
     color = "white";
     textcolor = "black";
-    if (highlighted === true) {
-      var highlightcolor = "blue";
-    } else {
-      highlightcolor = "white";
-    }
   }
-*/
 
-  var color = "white";
-  var textcolor = "black";
 
   const [trigger, changeTrigger] = useRecoilState(triggered);
 
@@ -79,7 +85,7 @@ export default function SimpleCard({ row, col, highlighted }) {
                     row={row}
                     col={col}
                     label=""
-                    InputProps={{ disableUnderline: true }}
+                    InputProps={{ disableUnderline: true, style: { color: textcolor} }}
                   />
                 </form>
               }
@@ -97,7 +103,7 @@ export default function SimpleCard({ row, col, highlighted }) {
                     row={row}
                     col={col}
                     label=""
-                    InputProps={{ disableUnderline: true }}
+                    InputProps={{ disableUnderline: true, style: { color: textcolor} }}
                   />
                 </form>
               }

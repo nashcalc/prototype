@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask import request
 from flask_cors import CORS
-from solvenasheq import solvefornasheq
+from solvenormalnasheq import solvefornormalnasheq
 
 app = Flask(__name__, static_folder="../build", static_url_path="/")
 CORS(app)
@@ -13,7 +13,7 @@ def index():
 @app.route('/test', methods=['POST'])
 def postTest():
     data = request.get_json()
-    solvedeqs = solvefornasheq(data)
+    solvedeqs = solvefornormalnasheq(data)
     return jsonify(solvedeqs)
 
 @app.route('/bruh')

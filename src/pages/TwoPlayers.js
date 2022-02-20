@@ -25,7 +25,7 @@ export default function TwoPlayers({}) {
   }
 
     return (
-      <React.Fragment>
+      <div>
         <NashImageHome/>
         <ToggleButtonGroup
           color="primary"
@@ -37,7 +37,7 @@ export default function TwoPlayers({}) {
           <ToggleButton value="Extensive">Extensive Form</ToggleButton>
         </ToggleButtonGroup>
         <div></div>
-        <div>
+        <div style={{height:"100%"}}>
           <br></br>
           <br></br>
           <br></br>
@@ -47,7 +47,7 @@ export default function TwoPlayers({}) {
           <br></br>
           <GameType/>
         </div>
-      </React.Fragment>
+      </div>
 
     );
   }
