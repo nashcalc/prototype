@@ -6,3 +6,9 @@ float: left;
 padding-left: 3px;
 padding-top: 3px;
 }
+
+.home {
+  float: left;
+  padding-top: 105px;
+  padding-left: 40px;
+}

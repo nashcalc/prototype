@@ -6,10 +6,15 @@ export default function NashImageHome({}) {
   return(
     <div>
       <Link to={'/'} style={{ textDecoration: 'none' }} >
+        <div className="home">
+          <h5>Home</h5>
+        </div>
         <div className="img">
           <img src={"../nashsmall.gif"} alt="Home" />
         </div>
+
       </Link>
+
     </div>
   )
 }

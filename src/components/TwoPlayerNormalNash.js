@@ -9,7 +9,7 @@ import { useRecoilState } from "recoil";
 
 /* eslint-disable no-unused-expressions */
 
-export default function TwoPlayerNormalNash({}) {
+export default function TwoPlayerNormalNash({librows, libcols, libpayoffMatrix}) {
   const [rows, setRows] = useState(2);
   const [cols, setCols] = useState(2);
 
@@ -139,6 +139,13 @@ export default function TwoPlayerNormalNash({}) {
   const [minusColsState, setMinusColsState] = useState(-1);
 
   useEffect(() => {
+    //using size info from game library to auto-resize
+    if (librows!=null){
+      setRows(librows)
+    }
+    if (libcols!=null){
+      setCols(libcols)
+    }
     if (rows > 1 && cols > 1) {
       setMinusRowsState(-1);
       setMinusColsState(-1);
