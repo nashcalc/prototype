@@ -86,5 +86,5 @@ def solvefornormalnasheq(matrixdict):
 
     return full_interpretation
 
-deadlockedDeadlock = {'matrixdict':[{"row":"2","col":"2","player":"1","value":"1"},{"row":"2","col":"2","player":"2","value":"1"},{"row":"2","col":"3","player":"1","value":"0"},{"row":"2","col":"3","player":"2","value":"3"},{"row":"3","col":"2","player":"1","value":"3"},{"row":"3","col":"2","player":"2","value":"0"},{"row":"3","col":"3","player":"1","value":"2"},{"row":"3","col":"3","player":"2","value":"2"}]}
-print(solvefornormalnasheq(deadlockedDeadlock))
+#deadlockedDeadlock = {'matrixdict':[{"row":"2","col":"2","player":"1","value":"1"},{"row":"2","col":"2","player":"2","value":"1"},{"row":"2","col":"3","player":"1","value":"0"},{"row":"2","col":"3","player":"2","value":"3"},{"row":"3","col":"2","player":"1","value":"3"},{"row":"3","col":"2","player":"2","value":"0"},{"row":"3","col":"3","player":"1","value":"2"},{"row":"3","col":"3","player":"2","value":"2"}]}
+#print(solvefornormalnasheq(deadlockedDeadlock))

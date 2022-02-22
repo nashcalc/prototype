@@ -99,7 +99,6 @@ export default function TwoPlayers({}) {
           <br></br>
           <br></br>
           <GameType/>
-          {data}
         </div>
       </div>
 
