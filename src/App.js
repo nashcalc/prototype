@@ -1,7 +1,7 @@
 import "./App.css";
 //import axios from "axios";
 
-import {BrowserRouter, Route, Link} from "react-router-dom"
+import {BrowserRouter, Route} from "react-router-dom"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import TwoPlayers from "./pages/TwoPlayers.js"

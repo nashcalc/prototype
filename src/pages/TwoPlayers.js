@@ -58,7 +58,6 @@ export default function TwoPlayers({}) {
   function GameType(){
     if (alignment == "Normal"){
         var dimensionsandPayoffs = getDimensionsandPayoffs()
-        console.log(dimensionsandPayoffs)
       return (
         <TwoPlayerNormalNash
         librows={dimensionsandPayoffs["rows"]}

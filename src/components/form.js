@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Card from "@material-ui/core/Card";
@@ -27,8 +27,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleCard({ row, col, highlightedeqs }) {
+export default function TwoPlayerForm({ row, col, highlightedeqs, libpayoffMatrix }) {
   const classes = useStyles();
+
+  const myValue1 = React.useRef("")
+  const myValue2 = React.useRef("")
+  //const [myValue1, setValue] = useState("");
+  //const [myValue2, setValue2] = useState("");
+
+  var libraryInputAutomation = false
+  if (libpayoffMatrix != null){
+          var payoffInputs = libpayoffMatrix[row][col]
+          //console.log(payoffInputs)
+          var libraryInputAutomation = true
+        }
 
   row = row + 1
   col = col + 1
@@ -51,21 +63,29 @@ export default function SimpleCard({ row, col, highlightedeqs }) {
     textcolor = "black";
   }
 
-
   const [trigger, changeTrigger] = useRecoilState(triggered);
 
+
   const handleChange = (event) => {
-    setValue(event.target.value);
+
+    myValue1.current = event.target.value;
     changeTrigger(!trigger);
+    console.log("changed")
   };
 
   const handleChange2 = (event) => {
-    setValue2(event.target.value);
+    myValue2.current = event.target.value;
     changeTrigger(!trigger);
+    console.log("changed")
   };
 
-  const [myValue1, setValue] = useState("");
-  const [myValue2, setValue2] = useState("");
+
+//this cannot actually change the state because the side effect causes a rerender
+
+  if (libraryInputAutomation == true){
+    myValue1.current = payoffInputs[0];
+    myValue2.current = payoffInputs[1];
+  }
 
   return (
     <div>
@@ -79,7 +99,7 @@ export default function SimpleCard({ row, col, highlightedeqs }) {
                   <TextField
                     type="number"
                     className="formvalue"
-                    value={myValue1}
+                    value={myValue1.current}
                     onChange={handleChange}
                     id={"row" + (row + 1) + "col" + (col + 1) + "subform1"}
                     row={row}
@@ -97,7 +117,7 @@ export default function SimpleCard({ row, col, highlightedeqs }) {
                   <TextField
                     type="number"
                     className="formvalue"
-                    value={myValue2}
+                    value={myValue2.current}
                     onChange={handleChange2}
                     id={"row" + (row + 1) + "col" + (col + 1) + "subform2"}
                     row={row}

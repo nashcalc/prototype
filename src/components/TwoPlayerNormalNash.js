@@ -70,9 +70,6 @@ export default function TwoPlayerNormalNash({librows, libcols, libpayoffMatrix})
     return pureHighlightedEqsArray;
 }
 
-
-  var modifiedDataArray = []
-
   useEffect(() => {
     var values = document.getElementsByClassName(
       "MuiInputBase-input MuiInput-input"
@@ -107,11 +104,11 @@ export default function TwoPlayerNormalNash({librows, libcols, libpayoffMatrix})
       }else{
         count_to_check_for_full_matrixdict+=1;
       }
-
     }
     //dictionary values instead of string parsing
     //console.log(matrixdict);
-
+    var modifiedDataArray = []
+    console.log(matrixdict)
     if (count_to_check_for_full_matrixdict === 0){
       axios({
         method: "POST",
@@ -126,12 +123,15 @@ export default function TwoPlayerNormalNash({librows, libcols, libpayoffMatrix})
         }
           setHighlightedEqs(generatePureHighlightedEqs(modifiedDataArray))
           setEqResponse(JSON.stringify(modifiedDataArray))
+          console.log("hello")
           //setEqResponse(modifiedDataArray)
           //setEqResponse("Success")
         })
         .catch(function (error) {
           setEqResponse("Please complete the payoff matrix")
         });
+    }else{
+      setEqResponse("Please complete the payoff matrix")
     }
   }, [trigger]);
 
@@ -164,7 +164,7 @@ export default function TwoPlayerNormalNash({librows, libcols, libpayoffMatrix})
   return (
     <div className="twoplayernash">
       <div className = "gridStyle">
-        <Grid rows={rows} cols={cols} highlightedeqs={highlightedeqs}/>
+        <Grid rows={rows} cols={cols} highlightedeqs={highlightedeqs} libpayoffMatrix={libpayoffMatrix}/>
       </div>
       <br></br>
       <div>

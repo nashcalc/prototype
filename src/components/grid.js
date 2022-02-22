@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SpacingGrid({ rows, cols, highlightedeqs }) {
+export default function SpacingGrid({ rows, cols, highlightedeqs, libpayoffMatrix }) {
 
   function arraychunk(arr, len) {
     var chunks = [],
@@ -45,6 +45,7 @@ export default function SpacingGrid({ rows, cols, highlightedeqs }) {
                   row={i}
                   col={value}
                   highlightedeqs = {highlightedeqs}
+                  libpayoffMatrix = {libpayoffMatrix}
                 />
               </Grid>
             ))}

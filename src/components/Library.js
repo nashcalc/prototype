@@ -75,11 +75,6 @@ const Games = [
     [[0,0],[2,3]]]},
     link: "https://en.wikipedia.org/wiki/Battle_of_the_sexes_(game_theory)" },
 
-  { title: 'Blotto Game', info: "",
-  payoffs: {rows: 5, cols: 4, matrix: []
-  },
-  link: "https://en.wikipedia.org/wiki/Blotto_game"  },
-
   { title: 'Chicken / Hawk Dove', info: "", payoffs:
   {rows: 2, cols: 2, matrix:
     [[[-2,-2],[4,0]],
@@ -125,7 +120,7 @@ const Games = [
     link: "https://en.wikipedia.org/wiki/Stag_hunt"  },
 
   { title: "Traveler's Dilemma (Condensed)", info: "",
-  payoffs: {rows: 50, cols: 50, matrix:
+  payoffs: {rows: 10, cols: 10, matrix:
     [[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
     [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
     [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
@@ -138,6 +133,15 @@ const Games = [
     [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]]]},
     link: "https://en.wikipedia.org/wiki/Traveler%27s_dilemma"  },
 
-  { title: "War of Attrition???", info: "",
-  payoffs: {rows: 2, cols: 2, matrix:[]}, link: "https://en.wikipedia.org/wiki/War_of_attrition_(game)"  },
+
 ];
+
+
+/*
+
+[[[1,1],[0,3]],
+[[3,0],[2,2]]]},
+
+{ title: "War of Attrition???", info: "",
+payoffs: {rows: 2, cols: 2, matrix:null}, link: "https://en.wikipedia.org/wiki/War_of_attrition_(game)"  },
+*/
