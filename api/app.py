@@ -4,7 +4,7 @@ from flask_cors import CORS
 from solvenormalnasheq import solvefornormalnasheq
 
 app = Flask(__name__, static_folder="../build", static_url_path="/")
-CORS(app)
+cors = CORS(app)
 
 @app.route('/')
 def index():
