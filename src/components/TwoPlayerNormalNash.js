@@ -67,6 +67,7 @@ export default function TwoPlayerNormalNash({librows, libcols, libpayoffMatrix})
         pureHighlightedEqsArray.push([withoutMixedArray[i][1].slice(24),withoutMixedArray[i+1][1].slice(24)])
       }
     }
+    console.log(pureHighlightedEqsArray)
     return pureHighlightedEqsArray;
 }
 
@@ -108,7 +109,6 @@ export default function TwoPlayerNormalNash({librows, libcols, libpayoffMatrix})
     //dictionary values instead of string parsing
     //console.log(matrixdict);
     var modifiedDataArray = []
-    console.log(matrixdict)
     if (count_to_check_for_full_matrixdict === 0){
       axios({
         method: "POST",
