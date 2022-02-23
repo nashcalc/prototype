@@ -59,7 +59,7 @@ const Home = () => {
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               component="img"
-              alt="three players"
+              alt="n players"
               height="190"
               image="./nplayers.jpg"
             />
@@ -72,6 +72,26 @@ const Home = () => {
               </Typography>
             </CardContent>
           </Card>
+        </div>
+        <div>
+          <Link to={'/or'} style={{ textDecoration: 'none' }} >
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                component="img"
+                alt="operations research"
+                height="190"
+                image="./operations.png"
+              />
+              <CardContent>
+
+                <Typography gutterBottom variant="h5" component="div">
+                  Operations Research
+                  <br></br>
+                  (Coming Soon)
+                </Typography>
+              </CardContent>
+            </Card>
+          </Link>
         </div>
       </div>
     </div>

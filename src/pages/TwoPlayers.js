@@ -69,14 +69,21 @@ export default function TwoPlayers({}) {
       return (
         <TwoPlayerExtensiveNash/>
       )
+    }else{
+      var dimensionsandPayoffs = getDimensionsandPayoffs()
+      return (
+        <TwoPlayerNormalNash
+        librows={dimensionsandPayoffs["rows"]}
+        libcols={dimensionsandPayoffs["cols"]}
+        libpayoffMatrix={dimensionsandPayoffs["payoffMatrix"]}
+        />
+      )
     }
   }
 
     return (
       <div>
-
         <NashImageHome/>
-
         <ToggleButtonGroup
           color="primary"
           value={alignment}
@@ -84,7 +91,7 @@ export default function TwoPlayers({}) {
           onChange={handleChange}
         >
           <ToggleButton value="Normal">Strategic Form</ToggleButton>
-          <ToggleButton value="Extensive">Extensive Form</ToggleButton>
+          <ToggleButton value="Extensive" disabled>Extensive Form (in development)</ToggleButton>
         </ToggleButtonGroup>
 
         <Library childToParent={childToParent}/>
