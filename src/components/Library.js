@@ -68,6 +68,13 @@ export default function Library({childToParent}) {
 //for the more info and link data there should be a more info / information
 //icon or area where one can access the information below
 
+/*
+http://dragice.fr/gameicons/
+https://en.wikipedia.org/wiki/List_of_games_in_game_theory
+https://www.gametheory.net/dictionary/
+*/
+
+
 const Games = [
   { title: 'Battle of the Sexes', info: "",
   payoffs: {rows: 2, cols: 2, matrix:
